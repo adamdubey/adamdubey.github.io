@@ -23,9 +23,9 @@ Of the objectives outlined,  `objective b.` was the one I was truly excited to t
 
 ![party-popper](/assets/images/party-popper.gif)
 
-Check it out here: [todo-app](https://adamdubey.github.io/greatest-hits)
+Check it out here: [todo-app](https://adamdubey.github.io/todo-app)
 
-Overall, it was nice to finally get around to breathing some new life into these projects, and knock out some tasks on the board to inspire new projects.
+Overall, it was nice to finally get around to breathing some new life into these projects, and knock out some tasks on the board to inspire new projects. Sometimes taking the time to do a _"digital cleanse"_ and really assessing which projects, tasks, and old archival data can be purged really does help open up the door to gaining time for personal projects that do matter and are fun to learn from.
 
 Glad I've gotten around to working on this one, until next time...
 
