@@ -1,7 +1,7 @@
 ---
 layout: single
 author_profile: true
-title: "Deploying a React app with Github Pages project write-up"
+title: "Deploying a React app with Github Pages"
 ---
 A journey of building and deploying a React.js project on Github Pages.
 
