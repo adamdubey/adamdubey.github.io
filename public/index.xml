@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>adamdubey.github.io</title>
+    <link>https://www.adamdubey.github.io/</link>
+    <description>Recent content on adamdubey.github.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 01 Dec 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.adamdubey.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Ahoy!</title>
+      <link>https://www.adamdubey.github.io/posts/ahoy/</link>
+      <pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.adamdubey.github.io/posts/ahoy/</guid>
+      <description>Ahoy! Welcome back.
+Certainly glad you could find your way here! Clearly things look a bit different now running on Hugo than they did on the older Jekyll iteration of this site.
+I wanted to really re-introduce this project properly this launch since sadly, when I launched the first iteration I didn&#39;t really have much free time to work on passion projects or write about various technologies.
+Why is this going to be any different?</description>
+    </item>
+    
+    <item>
+      <title>Deploying a React app with GitHub Pages</title>
+      <link>https://www.adamdubey.github.io/projects/deploy-react-to-gh-pages/</link>
+      <pubDate>Tue, 15 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.adamdubey.github.io/projects/deploy-react-to-gh-pages/</guid>
+      <description>With a few hours to kill on a lazy Sunday afternoon&amp;hellip;
+GitHub Pages makes it very easy to quickly deploy a web application that only needs a front-end, which is a great medium to use if you for example, wanted to showcase an app or two for an online web developer portfolio.
+While you can pretty much use any front-end framework and deploy to GitHub Pages, I&#39;ve chosen to use React.</description>
+    </item>
+    
+  </channel>
+</rss>
