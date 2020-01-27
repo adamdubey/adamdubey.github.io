@@ -1,1 +1,0 @@
-# adamdubey.github.io
