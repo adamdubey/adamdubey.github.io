@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Deploying a React app with GitHub Pages - adamdubey.github.io</title>
+<!-- begin _includes/seo.html --><title>Deploying a React.js app with GitHub Pages - adamdubey.github.io</title>
 <meta name="description" content="A journey of building and deploying a React.js application with GitHub Pages.">
 
 
@@ -17,7 +17,7 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="adamdubey.github.io">
-<meta property="og:title" content="Deploying a React app with GitHub Pages">
+<meta property="og:title" content="Deploying a React.js app with GitHub Pages">
 <meta property="og:url" content="http://localhost:4000/projects/2019-09-15-deploying-a-react-app-to-github-pages/">
 
 
@@ -268,7 +268,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Deploying a React app with GitHub Pages">
+    <meta itemprop="headline" content="Deploying a React.js app with GitHub Pages">
     <meta itemprop="description" content="A journey of building and deploying a React.js application with GitHub Pages.">
     <meta itemprop="datePublished" content="September 15, 2019">
     
@@ -276,7 +276,7 @@
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Deploying a React app with GitHub Pages
+          <h1 id="page-title" class="page__title" itemprop="headline">Deploying a React.js app with GitHub Pages
 </h1>
           
         </header>
@@ -313,15 +313,12 @@
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// edit src/App.js with the following code:</span>
 
 <span class="c1">// Import React and ReactDOM</span>
-<span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="s1">'react'</span>
-<span class="k">import</span> <span class="nx">ReactDOM</span> <span class="k">from</span> <span class="s1">'react-dom'</span>
+<span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="s2">"react"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">ReactDOM</span> <span class="k">from</span> <span class="s2">"react-dom"</span><span class="p">;</span>
 
 <span class="c1">// Render component into the DOM</span>
-<span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span>
-<span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">My</span> <span class="nx">todo</span> <span class="nx">app</span><span class="o">&lt;</span><span class="sr">/h1&gt;</span><span class="err">,
-</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'root'</span><span class="p">)</span>
-<span class="p">);</span>
-</code></pre></div></div>
+<span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">My</span> <span class="nx">todo</span> <span class="nx">app</span><span class="o">&lt;</span><span class="sr">/h1&gt;, document.getElementById</span><span class="se">(</span><span class="sr">"root"</span><span class="se">))</span><span class="err">;
+</span></code></pre></div></div>
 
 <p>Fire it up! - Run the command and then in your web browser, visit <code class="highlighter-rouge">localhost:3000</code></p>
 
@@ -332,14 +329,14 @@
 
 <p>So up to this point, the following work has been performed:</p>
 
-<ul class="task-list">
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Steps were taken to ensure your workspace supports working in React</li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" /><code class="highlighter-rouge">create-react-app &lt;projectName&gt;</code> will install React and all essential libraries to facilitate a basic framework that you can now use to create an application</li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" /><code class="highlighter-rouge">npm run start</code> builds a development copy of your application, and serves it in a web browser</li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />When you visit <code class="highlighter-rouge">localhost:3000</code> in a browser, you should be able to confirm the app loads and displays something on the page</li>
+<ul>
+  <li>Steps were taken to ensure your workspace supports working in React</li>
+  <li><code class="highlighter-rouge">create-react-app &lt;projectName&gt;</code> will install React and all essential libraries to facilitate a basic framework that you can now use to create an application</li>
+  <li><code class="highlighter-rouge">npm run start</code> builds a development copy of your application, and serves it in a web browser</li>
+  <li>When you visit <code class="highlighter-rouge">localhost:3000</code> in a browser, you should be able to confirm the app loads and displays something on the page</li>
 </ul>
 
-<p>Not too bad for a high level overview! It gets you up and running with a basic outline of steps you can use to make other React specific projects.</p>
+<p>Not bad for a high level overview! It gets you up and running with a basic outline of steps you can use to make other React specific projects.</p>
 
 <p>Again there is a fair amount of information that is not being covered, so if you aren’t entirely clear on the steps so far that’s okay! I strongly encourage you to spend 15 minutes to explore the pieces you aren’t sure about to help expand knowledge in those areas, and then return to see if your question(s) still persist - rinse and repeat as necessary.</p>
 
@@ -351,12 +348,12 @@
 
 <p>To include Semantic in your project, you’ll need to first install the package and then import it in your code.</p>
 
-<p>Installing Semantic UI</p>
+<p><strong>Installing Semantic UI</strong></p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm i semantic-ui-react <span class="nt">--save</span>
 </code></pre></div></div>
 
-<p>Including Semantic UI in code</p>
+<p><strong>Including Semantic UI in code</strong></p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Button</span><span class="p">,</span> <span class="nx">Container</span><span class="p">,</span> <span class="nx">Segment</span><span class="p">,</span> <span class="nx">Grid</span><span class="p">,</span> <span class="nx">Header</span> <span class="p">}</span> <span class="k">from</span> <span class="s2">"semantic-ui-react"</span><span class="p">;</span>
 </code></pre></div></div>
@@ -364,16 +361,16 @@
 <p>Example of a Semantic UI button:</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">Button</span>
-    <span class="nx">name</span><span class="o">=</span><span class="s2">"hamburgerbutton"</span>
-    <span class="nx">icon</span><span class="o">=</span><span class="s2">"bars"</span>
-    <span class="nx">color</span><span class="o">=</span><span class="s2">"blue"</span>
-    <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">handleMenuItemClick</span><span class="p">}</span>
+  <span class="nx">name</span><span class="o">=</span><span class="s2">"hamburgerbutton"</span>
+  <span class="nx">icon</span><span class="o">=</span><span class="s2">"bars"</span>
+  <span class="nx">color</span><span class="o">=</span><span class="s2">"blue"</span>
+  <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">handleMenuItemClick</span><span class="p">}</span>
 <span class="sr">/</span><span class="err">&gt;
 </span></code></pre></div></div>
 
-<p>Should you fancy some documentation for <a href="https://semantic-ui.com">Semantic UI</a>?</p>
+<p><strong>Documentation for <a href="https://semantic-ui.com">Semantic UI</a></strong> <em>i’m not paid for this, i’m just a fan of what works!</em></p>
 
-<p>There are some pretty sick themes you can make to have your application really stand-out with a highly polished look. If you haven’t ever worked with Semantic UI before I highly encourage you to give it a go.</p>
+<p>There are some pretty sick themes you can make to have your application really stand-out with a highly polished look. If you have never worked with Semantic UI before, I highly encourage you to give it a go!</p>
 
 <p>So that about covers the actual app development for this particular project write-up, since I mainly wanted to capture the steps to cover deployments with GitHub Pages.</p>
 
@@ -391,7 +388,7 @@
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"homepage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://gitname.github.io/your-project-name"</span><span class="w">
 </span></code></pre></div></div>
 
-<p>This is the <code class="highlighter-rouge">magic part</code> of using GitHub Pages to host your application. Whenever you <code class="highlighter-rouge">npm run deploy</code> your application it will use this information. Definitely a piece of cake!</p>
+<p>This is the <em>“magic part”</em> of using GitHub Pages to host your application. Whenever you <code class="highlighter-rouge">npm run deploy</code> your application it will use this information. Definitely a piece of cake!</p>
 
 <p>Adding the <code class="highlighter-rouge">predeploy</code> and <code class="highlighter-rouge">deploy</code> commands</p>
 
@@ -405,18 +402,18 @@
   </span><span class="p">},</span><span class="w">
 </span></code></pre></div></div>
 
-<p>The <code class="highlighter-rouge">predeploy</code> command will just build a production copy of the application locally - it’s pretty good practice to perform a build locally before deploying. Even better if you are leveraging CI/CD within your workflow, as the <code class="highlighter-rouge">predeploy</code> script could be extended to build and deploy to a DEV or QA environment for testing purposes before going to production.</p>
+<p>The <code class="highlighter-rouge">predeploy</code> command will just build a production copy of the application locally - it’s a good practice to perform a build locally before deploying. Even better if you are leveraging CI/CD within your workflow, as the <code class="highlighter-rouge">predeploy</code> script could be extended to build and deploy to a DEV or QA environment for testing purposes before going to production.</p>
 
-<p>The <code class="highlighter-rouge">deploy</code> command will perform a build, and then deploy the application to your GitHub Pages site. Bear in mind this is a trigger command which should not be used lightly, please understand what you’re doing and know for sure before executing this one!</p>
+<p>The <code class="highlighter-rouge">deploy</code> command will perform a build, and then deploy the application to your GitHub Pages site. Bear in mind this is a trigger command which should not be used lightly, please understand what you are doing and certainly know for sure before executing this one!</p>
 
 <p>Finally, here are the steps to actually deploy your application.</p>
 
-<p>Build locally and test:</p>
+<p><strong>Build locally and test:</strong></p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm run build
 </code></pre></div></div>
 
-<p>Deploy your app to GitHub Pages:</p>
+<p><strong>Deploy your app to GitHub Pages:</strong></p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm run deploy
 </code></pre></div></div>
@@ -437,11 +434,7 @@
   <li>Commit hook captures your new code commit, and proceeds to do the following:
     <ul>
       <li>build</li>
-      <li>execute automated tests
-        <ul>
-          <li>if all checks and tests pass</li>
-        </ul>
-      </li>
+      <li>execute automated tests</li>
       <li>deploy to a target endpoint (example: DEV, QA)</li>
     </ul>
   </li>
@@ -459,16 +452,16 @@
 
 <p>Here is a summary of steps taken to build and deploy:</p>
 
-<ul class="task-list">
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Verified you have a working development environment</li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Constructed a new React.js project</li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Spun up a local working copy of the project</li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Tested and confirmed the project is working in your web browser</li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Deployed your application to your <code class="highlighter-rouge">gh-pages</code> site</li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Validated the deployment was successful, and your application is functioning as intended</li>
+<ul>
+  <li>Verified you have a working development environment</li>
+  <li>Constructed a new React.js project</li>
+  <li>Spun up a local working copy of the project</li>
+  <li>Tested and confirmed the project is working in your web browser</li>
+  <li>Deployed your application to your <code class="highlighter-rouge">gh-pages</code> site</li>
+  <li>Validated the deployment was successful, and your application is functioning as intended</li>
 </ul>
 
-<p>Not a bad way to spend a few hours on a Sunday afternoon! You by now have an overview of the process to construct an application, make some changes, and deploy - all very handy skills to refine and use throughout your software development endeavours.</p>
+<p>Not a bad way to spend a few hours on a Sunday afternoon! You by now have an overview of the process to construct an application, make some changes, and deploy - all very handy skills to refine and use throughout your software development endeavors.</p>
 
 <p><strong>Check it out here:</strong> <a href="https://adamdubey.github.io/todo-app">todo-app</a></p>
 
