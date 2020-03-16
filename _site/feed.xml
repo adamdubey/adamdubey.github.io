@@ -1,4 +1,195 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-01-28T12:04:00-06:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">adamdubey.github.io</title><subtitle>Adam's tech blog.</subtitle><author><name>Adam Dubey</name></author><entry><title type="html">Ahoy!</title><link href="http://localhost:4000/ahoy!/" rel="alternate" type="text/html" title="Ahoy!" /><published>2019-12-01T00:00:00-06:00</published><updated>2019-12-01T00:00:00-06:00</updated><id>http://localhost:4000/ahoy!</id><content type="html" xml:base="http://localhost:4000/ahoy!/">&lt;p&gt;Welcome to my little slice of the Internet!&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-03-16T16:42:27-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">adamdubey.github.io</title><subtitle>Adam's personal blog, mostly containing research on topics of interest as well as project reviews.</subtitle><author><name>Adam Dubey</name></author><entry><title type="html">Deploying a React.js app with GitHub Pages</title><link href="http://localhost:4000/deploying-a-react-app-to-github-pages/" rel="alternate" type="text/html" title="Deploying a React.js app with GitHub Pages" /><published>2019-09-15T00:00:00-05:00</published><updated>2019-09-15T00:00:00-05:00</updated><id>http://localhost:4000/deploying-a-react-app-to-github-pages</id><content type="html" xml:base="http://localhost:4000/deploying-a-react-app-to-github-pages/">&lt;p&gt;A journey of building and deploying a React.js application with GitHub Pages.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;With a few hours to kill on a lazy Sunday afternoon…&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;GitHub Pages makes it very easy to quickly deploy a web application that only needs a front-end, which is a great medium to use if you for example, wanted to showcase an app or two for an online web developer portfolio.&lt;/p&gt;
+
+&lt;p&gt;While you can pretty much use any front-end framework and deploy to GitHub Pages, I’ve chosen to use React.js since I wanted to recycle some old project code into this project. If you’re interested in working with the same tech stack&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; , make sure you have a &lt;em&gt;working development environment specific to your programming flavor of choice&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/em&gt;, as well as a GitHub account.&lt;/p&gt;
+
+&lt;h2 id=&quot;working-with-reactjs&quot;&gt;Working with React.js&lt;/h2&gt;
+
+&lt;p&gt;Let me be clear about this whole write-up, it most certainly is not a tutorial. There are a vast number of tutorials and other resources out there that will serve you way better.&lt;/p&gt;
+
+&lt;p&gt;Instead, take this as an overview of the fundamental procedures you can take if you wanted to deploy your own project application within the outlined tech stack.&lt;/p&gt;
+
+&lt;p&gt;So with all that being said, let’s get back on track to working with React.js&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;At a 10,000’ overview:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Create the project directory, then change to that directory&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;create-react-app myTodoApp/
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;myTodoApp/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now it’s time for some different boilerplate code&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// edit src/App.js with the following code:&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Import React and ReactDOM&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;react&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ReactDOM&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;react-dom&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Render component into the DOM&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;ReactDOM&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;h1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;My&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;todo&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/h1&amp;gt;, document.getElementById&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;&quot;root&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Fire it up! - Run the command and then in your web browser, visit &lt;code class=&quot;highlighter-rouge&quot;&gt;localhost:3000&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm run start
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;So up to this point, the following work has been performed:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Steps were taken to ensure your workspace supports working in React&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;create-react-app &amp;lt;projectName&amp;gt;&lt;/code&gt; will install React and all essential libraries to facilitate a basic framework that you can now use to create an application&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;npm run start&lt;/code&gt; builds a development copy of your application, and serves it in a web browser&lt;/li&gt;
+  &lt;li&gt;When you visit &lt;code class=&quot;highlighter-rouge&quot;&gt;localhost:3000&lt;/code&gt; in a browser, you should be able to confirm the app loads and displays something on the page&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Not bad for a high level overview! It gets you up and running with a basic outline of steps you can use to make other React specific projects.&lt;/p&gt;
+
+&lt;p&gt;Again there is a fair amount of information that is not being covered, so if you aren’t entirely clear on the steps so far that’s okay! I strongly encourage you to spend 15 minutes to explore the pieces you aren’t sure about to help expand knowledge in those areas, and then return to see if your question(s) still persist - rinse and repeat as necessary.&lt;/p&gt;
+
+&lt;h2 id=&quot;extending-your-project&quot;&gt;Extending your project&lt;/h2&gt;
+
+&lt;p&gt;Not going to spend too much time here, just covering some high points…&lt;/p&gt;
+
+&lt;p&gt;I’ve elected to use Semantic UI mainly because of prior experience having worked with it pretty extensively in various professional projects, and with that I have accumulated a bunch of small &lt;em&gt;“feature showcase examples”&lt;/em&gt; - you know, those little micro-projects you make to demo a concept feature or some functionality to Product Management… so I’ve decided to recycle some of those feature code snippets into this project.&lt;/p&gt;
+
+&lt;p&gt;To include Semantic in your project, you’ll need to first install the package and then import it in your code.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Installing Semantic UI&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm i semantic-ui-react &lt;span class=&quot;nt&quot;&gt;--save&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Including Semantic UI in code&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Button&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Container&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Segment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Grid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Header&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;semantic-ui-react&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Example of a Semantic UI button:&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Button&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;hamburgerbutton&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;icon&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;bars&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;blue&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;handleMenuItemClick&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;sr&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Documentation for &lt;a href=&quot;https://semantic-ui.com&quot;&gt;Semantic UI&lt;/a&gt;&lt;/strong&gt; &lt;em&gt;i’m not paid for this, i’m just a fan of what works!&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;There are some pretty sick themes you can make to have your application really stand-out with a highly polished look. If you have never worked with Semantic UI before, I highly encourage you to give it a go!&lt;/p&gt;
+
+&lt;p&gt;So that about covers the actual app development for this particular project write-up, since I mainly wanted to capture the steps to cover deployments with GitHub Pages.&lt;/p&gt;
+
+&lt;h2 id=&quot;deploying-to-github-pages&quot;&gt;Deploying to GitHub Pages&lt;/h2&gt;
+
+&lt;p&gt;We still need to add the facilities to be able to deploy to GitHub Pages. To achieve this, we need two things, the &lt;code class=&quot;highlighter-rouge&quot;&gt;gh-pages&lt;/code&gt; package installed in our project workspace as well as adding a few key components to the &lt;code class=&quot;highlighter-rouge&quot;&gt;package.json&lt;/code&gt; file.&lt;/p&gt;
+
+&lt;p&gt;Install the &lt;code class=&quot;highlighter-rouge&quot;&gt;gh-pages&lt;/code&gt; as a dev-dependency package&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm i &lt;span class=&quot;nt&quot;&gt;--save-dev&lt;/span&gt; gh-pages
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Adding the &lt;code class=&quot;highlighter-rouge&quot;&gt;homepage&lt;/code&gt; property&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nl&quot;&gt;&quot;homepage&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://gitname.github.io/your-project-name&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This is the &lt;em&gt;“magic part”&lt;/em&gt; of using GitHub Pages to host your application. Whenever you &lt;code class=&quot;highlighter-rouge&quot;&gt;npm run deploy&lt;/code&gt; your application it will use this information. Definitely a piece of cake!&lt;/p&gt;
+
+&lt;p&gt;Adding the &lt;code class=&quot;highlighter-rouge&quot;&gt;predeploy&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;deploy&lt;/code&gt; commands&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nl&quot;&gt;&quot;scripts&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;predeploy&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;npm run build&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;deploy&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;gh-pages -d build&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;start&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;react-scripts start&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;build&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;react-scripts build&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;test&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;react-scripts test --env=jsdom&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;eject&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;react-scripts eject&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;predeploy&lt;/code&gt; command will just build a production copy of the application locally - it’s a good practice to perform a build locally before deploying. Even better if you are leveraging CI/CD within your workflow, as the &lt;code class=&quot;highlighter-rouge&quot;&gt;predeploy&lt;/code&gt; script could be extended to build and deploy to a DEV or QA environment for testing purposes before going to production.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;deploy&lt;/code&gt; command will perform a build, and then deploy the application to your GitHub Pages site. Bear in mind this is a trigger command which should not be used lightly, please understand what you are doing and certainly know for sure before executing this one!&lt;/p&gt;
+
+&lt;p&gt;Finally, here are the steps to actually deploy your application.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Build locally and test:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm run build
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Deploy your app to GitHub Pages:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm run deploy
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;That’s it! You should now see your application live at your own GitHub project page. In regards to clean up and pushing code, it’s entirely up to you and if you are utilizing any CI/CD workflows.&lt;/p&gt;
+
+&lt;p&gt;For context on clean up and committing, one approach you could take may look like this:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Build and test locally, make sure you’re happy before deploying to production&lt;/li&gt;
+  &lt;li&gt;Commit and push your code; If you’re on a feature branch then open a pull request, then merge into Master&lt;/li&gt;
+  &lt;li&gt;Deploy your application from the Master branch&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;And hypothetically a CI/CD workflow could follow this outline:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Commit hook captures your new code commit, and proceeds to do the following:
+    &lt;ul&gt;
+      &lt;li&gt;build&lt;/li&gt;
+      &lt;li&gt;execute automated tests&lt;/li&gt;
+      &lt;li&gt;deploy to a target endpoint (example: DEV, QA)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Once the prior step completes, and you are happy with the results, another build trigger could be a one-button &lt;code class=&quot;highlighter-rouge&quot;&gt;deploy master&lt;/code&gt; button, in which case:
+    &lt;ul&gt;
+      &lt;li&gt;the new code commit is then accepted into branch &lt;code class=&quot;highlighter-rouge&quot;&gt;master&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;The deployment script process triggers a deployment to production with your new changes&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;recap&quot;&gt;Recap&lt;/h2&gt;
+
+&lt;p&gt;Hopefully you now have some insight into working with React.js as well as what the procedure looks like to deploy a front-end application to GitHub Pages.&lt;/p&gt;
+
+&lt;p&gt;Here is a summary of steps taken to build and deploy:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Verified you have a working development environment&lt;/li&gt;
+  &lt;li&gt;Constructed a new React.js project&lt;/li&gt;
+  &lt;li&gt;Spun up a local working copy of the project&lt;/li&gt;
+  &lt;li&gt;Tested and confirmed the project is working in your web browser&lt;/li&gt;
+  &lt;li&gt;Deployed your application to your &lt;code class=&quot;highlighter-rouge&quot;&gt;gh-pages&lt;/code&gt; site&lt;/li&gt;
+  &lt;li&gt;Validated the deployment was successful, and your application is functioning as intended&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Not a bad way to spend a few hours on a Sunday afternoon! You by now have an overview of the process to construct an application, make some changes, and deploy - all very handy skills to refine and use throughout your software development endeavors.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Check it out here:&lt;/strong&gt; &lt;a href=&quot;https://adamdubey.github.io/todo-app&quot;&gt;todo-app&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Glad I’ve gotten around to working on this one, until next time…&lt;/p&gt;
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;tech stack: OS X, React.js, Semantic UI, Git, Node.js &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
+      &lt;p&gt;YMMV on getting your own workspace setup, as there can be multiple variables with languages, packages, and operating systems to select from - if you are in doubt, please consult the &lt;a href=&quot;https://reactjs.org/&quot;&gt;official React documentation&lt;/a&gt;. Also, if you get stuck during initial configuration, &lt;em&gt;it’s probably a configuration or package dependency&lt;/em&gt; &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;</content><author><name>Adam Dubey</name></author><summary type="html">A journey of building and deploying a React.js application with GitHub Pages.</summary></entry><entry><title type="html">Ahoy!</title><link href="http://localhost:4000/ahoy!/" rel="alternate" type="text/html" title="Ahoy!" /><published>2019-09-13T00:00:00-05:00</published><updated>2019-09-13T00:00:00-05:00</updated><id>http://localhost:4000/ahoy!</id><content type="html" xml:base="http://localhost:4000/ahoy!/">&lt;p&gt;Welcome to my little slice of the Internet!&lt;/p&gt;
 
 &lt;p&gt;I’ve actually haven’t worked on this project in awhile unfortunately, so I wanted to take a moment to actually have a meaningful blog post to re-introduce this site. The purpose of this project site is to capture and document various technical projects that I encounter, and occationally write personal blog posts.&lt;/p&gt;
 
