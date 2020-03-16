@@ -1,6 +1,4 @@
 # main links
 main:
-  - title: Home
+  - title: Posts
     url: /
-  - title: Projects
-    url: /projects/
