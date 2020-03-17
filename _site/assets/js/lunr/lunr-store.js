@@ -1,6 +1,6 @@
 var store = [{
         "title": "Ahoy!",
-        "excerpt":"Welcome to my little slice of the Internet! I’ve actually haven’t worked on this project in awhile unfortunately, so I wanted to take a moment to actually have a meaningful blog post to re-introduce this site. The purpose of this project site is to capture and document various technical projects...","categories": [],
+        "excerpt":"Welcome to my little slice of the Internet! I am a software/electrical engineer, with an endless curiosity to create and tinker with hardware and software solutions. The purpose of this project site is to capture and document various technical projects that I encounter, mainly for future reference as well as...","categories": [],
         "tags": [],
         "url": "http://localhost:4000/ahoy!/",
         "teaser":null},{
