@@ -95,11 +95,9 @@ Example of a Semantic UI button:
 />
 ```
 
-**Documentation for [Semantic UI](https://semantic-ui.com)** _i'm not paid for this, i'm just a fan of what works!_
-
 There are some pretty sick themes you can make to have your application really stand-out with a highly polished look. If you have never worked with Semantic UI before, I highly encourage you to give it a go!
 
-So that about covers the actual app development for this particular project write-up, since I mainly wanted to capture the steps to cover deployments with GitHub Pages.
+So that covers the actual app development for this particular project write-up, since I mainly wanted to capture the steps to cover deployments with GitHub Pages.
 
 ## Deploying to GitHub Pages
 
@@ -117,7 +115,7 @@ Adding the `homepage` property
 "homepage": "https://gitname.github.io/your-project-name"
 ```
 
-This is the _"magic part"_ of using GitHub Pages to host your application. Whenever you `npm run deploy` your application it will use this information. Definitely a piece of cake!
+This is the _"magic part"_ of using GitHub Pages to host your application. Whenever you execute `npm run deploy` your application it will use this information. Definitely a piece of cake!
 
 Adding the `predeploy` and `deploy` commands
 
