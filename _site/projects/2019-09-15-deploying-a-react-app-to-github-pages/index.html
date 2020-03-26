@@ -1,0 +1,571 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.15.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Deploying a React.js app with GitHub Pages - adamdubey.github.io</title>
+<meta name="description" content="A journey of building and deploying a React.js application with GitHub Pages.">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="adamdubey.github.io">
+<meta property="og:title" content="Deploying a React.js app with GitHub Pages">
+<meta property="og:url" content="http://localhost:4000/projects/2019-09-15-deploying-a-react-app-to-github-pages/">
+
+
+  <meta property="og:description" content="A journey of building and deploying a React.js application with GitHub Pages.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2019-09-15T00:00:00-05:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/projects/2019-09-15-deploying-a-react-app-to-github-pages/">
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Adam Dubey",
+      "url": "http://localhost:4000",
+      "sameAs": null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="adamdubey.github.io Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link
+  rel="shortcut icon"
+  type="image/x-icon"
+  href="../../assets/images/favicon.ico"
+/>
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">adamdubey.github.io</a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/" >Posts</a>
+            </li><li class="masthead__menu-item">
+              <a href="/projects/" >Projects</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+
+      
+        <img src="/assets/images/bio-photo.jpeg" alt="Adam Dubey" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Adam Dubey</h3>
+    
+    
+      <p class="author__bio" itemprop="description">
+        Intergalactic citizen of the Internet.
+      </p>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">San Francisco, CA</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/adamdubey" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/adam-dubey" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> Linkedin</a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Deploying a React.js app with GitHub Pages">
+    <meta itemprop="description" content="A journey of building and deploying a React.js application with GitHub Pages.">
+    <meta itemprop="datePublished" content="September 15, 2019">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Deploying a React.js app with GitHub Pages
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>A journey of building and deploying a React.js application with GitHub Pages.</p>
+
+<p><em>With a few hours to kill on a lazy Sunday afternoon…</em></p>
+
+<p>GitHub Pages makes it very easy to quickly deploy a web application that only needs a front-end, which is a great medium to use if you for example, wanted to showcase an app or two for an online web developer portfolio.</p>
+
+<p>While you can pretty much use any front-end framework and deploy to GitHub Pages, I’ve chosen to use React.js since I wanted to recycle some old project code into this project. If you’re interested in working with the same tech stack<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup> , make sure you have a <em>working development environment specific to your programming flavor of choice<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup></em>, as well as a GitHub account.</p>
+
+<h2 id="working-with-reactjs">Working with React.js</h2>
+
+<p>Let me be clear about this whole write-up, it most certainly is not a tutorial. There are a vast number of tutorials and other resources out there that will serve you way better.</p>
+
+<p>Instead, take this as an overview of the fundamental procedures you can take if you wanted to deploy your own project application within the outlined tech stack.</p>
+
+<p>So with all that being said, let’s get back on track to working with React.js</p>
+
+<p><strong>At a 10,000’ overview:</strong></p>
+
+<p>Create the project directory, then change to that directory</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>create-react-app myTodoApp/
+<span class="nv">$ </span><span class="nb">cd </span>myTodoApp/
+</code></pre></div></div>
+
+<p>Now it’s time for some different boilerplate code</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// edit src/App.js with the following code:</span>
+
+<span class="c1">// Import React and ReactDOM</span>
+<span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">ReactDOM</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react-dom</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="c1">// Render component into the DOM</span>
+<span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">My</span> <span class="nx">todo</span> <span class="nx">app</span><span class="o">&lt;</span><span class="sr">/h1&gt;, document.getElementById</span><span class="se">(</span><span class="sr">"root"</span><span class="se">))</span><span class="err">;
+</span></code></pre></div></div>
+
+<p>Fire it up! - Run the command and then in your web browser, visit <code class="highlighter-rouge">localhost:3000</code></p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm run start
+</code></pre></div></div>
+
+<hr />
+
+<p>So up to this point, the following work has been performed:</p>
+
+<ul>
+  <li>Steps were taken to ensure your workspace supports working in React</li>
+  <li><code class="highlighter-rouge">create-react-app &lt;projectName&gt;</code> will install React and all essential libraries to facilitate a basic framework that you can now use to create an application</li>
+  <li><code class="highlighter-rouge">npm run start</code> builds a development copy of your application, and serves it in a web browser</li>
+  <li>When you visit <code class="highlighter-rouge">localhost:3000</code> in a browser, you should be able to confirm the app loads and displays something on the page</li>
+</ul>
+
+<p>Not bad for a high level overview! It gets you up and running with a basic outline of steps you can use to make other React specific projects.</p>
+
+<p>Again there is a fair amount of information that is not being covered, so if you aren’t entirely clear on the steps so far that’s okay! I strongly encourage you to spend 15 minutes to explore the pieces you aren’t sure about to help expand knowledge in those areas, and then return to see if your question(s) still persist - rinse and repeat as necessary.</p>
+
+<h2 id="extending-your-project">Extending your project</h2>
+
+<p>Not going to spend too much time here, just covering some high points…</p>
+
+<p>I’ve elected to use Semantic UI mainly because of prior experience having worked with it pretty extensively in various professional projects, and with that I have accumulated a bunch of small <em>“feature showcase examples”</em> - you know, those little micro-projects you make to demo a concept feature or some functionality to Product Management… so I’ve decided to recycle some of those feature code snippets into this project.</p>
+
+<p>To include Semantic in your project, you’ll need to first install the package and then import it in your code.</p>
+
+<p><strong>Installing Semantic UI</strong></p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm i semantic-ui-react <span class="nt">--save</span>
+</code></pre></div></div>
+
+<p><strong>Including Semantic UI in code</strong></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Button</span><span class="p">,</span> <span class="nx">Container</span><span class="p">,</span> <span class="nx">Segment</span><span class="p">,</span> <span class="nx">Grid</span><span class="p">,</span> <span class="nx">Header</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">semantic-ui-react</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Example of a Semantic UI button:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">Button</span>
+  <span class="nx">name</span><span class="o">=</span><span class="dl">"</span><span class="s2">hamburgerbutton</span><span class="dl">"</span>
+  <span class="nx">icon</span><span class="o">=</span><span class="dl">"</span><span class="s2">bars</span><span class="dl">"</span>
+  <span class="nx">color</span><span class="o">=</span><span class="dl">"</span><span class="s2">blue</span><span class="dl">"</span>
+  <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">handleMenuItemClick</span><span class="p">}</span>
+<span class="sr">/</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<p>There are some pretty sick themes you can make to have your application really stand-out with a highly polished look. If you have never worked with Semantic UI before, I highly encourage you to give it a go!</p>
+
+<p>So that covers the actual app development for this particular project write-up, since I mainly wanted to capture the steps to cover deployments with GitHub Pages.</p>
+
+<h2 id="deploying-to-github-pages">Deploying to GitHub Pages</h2>
+
+<p>We still need to add the facilities to be able to deploy to GitHub Pages. To achieve this, we need two things, the <code class="highlighter-rouge">gh-pages</code> package installed in our project workspace as well as adding a few key components to the <code class="highlighter-rouge">package.json</code> file.</p>
+
+<p>Install the <code class="highlighter-rouge">gh-pages</code> as a dev-dependency package</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm i <span class="nt">--save-dev</span> gh-pages
+</code></pre></div></div>
+
+<p>Adding the <code class="highlighter-rouge">homepage</code> property</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"homepage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://gitname.github.io/your-project-name"</span><span class="w">
+</span></code></pre></div></div>
+
+<p>This is the <em>“magic part”</em> of using GitHub Pages to host your application. Whenever you execute <code class="highlighter-rouge">npm run deploy</code> your application it will use this information. Definitely a piece of cake!</p>
+
+<p>Adding the <code class="highlighter-rouge">predeploy</code> and <code class="highlighter-rouge">deploy</code> commands</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"predeploy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"npm run build"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"deploy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gh-pages -d build"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"react-scripts start"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"react-scripts build"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"test"</span><span class="p">:</span><span class="w"> </span><span class="s2">"react-scripts test --env=jsdom"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"eject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"react-scripts eject"</span><span class="w">
+  </span><span class="p">}</span><span class="err">,</span><span class="w">
+</span></code></pre></div></div>
+
+<p>The <code class="highlighter-rouge">predeploy</code> command will just build a production copy of the application locally - it’s a good practice to perform a build locally before deploying. Even better if you are leveraging CI/CD within your workflow, as the <code class="highlighter-rouge">predeploy</code> script could be extended to build and deploy to a DEV or QA environment for testing purposes before going to production.</p>
+
+<p>The <code class="highlighter-rouge">deploy</code> command will perform a build, and then deploy the application to your GitHub Pages site. Bear in mind this is a trigger command which should not be used lightly, please understand what you are doing and certainly know for sure before executing this one!</p>
+
+<p>Finally, here are the steps to actually deploy your application.</p>
+
+<p><strong>Build locally and test:</strong></p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm run build
+</code></pre></div></div>
+
+<p><strong>Deploy your app to GitHub Pages:</strong></p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm run deploy
+</code></pre></div></div>
+
+<p>That’s it! You should now see your application live at your own GitHub project page. In regards to clean up and pushing code, it’s entirely up to you and if you are utilizing any CI/CD workflows.</p>
+
+<p>For context on clean up and committing, one approach you could take may look like this:</p>
+
+<ol>
+  <li>Build and test locally, make sure you’re happy before deploying to production</li>
+  <li>Commit and push your code; If you’re on a feature branch then open a pull request, then merge into Master</li>
+  <li>Deploy your application from the Master branch</li>
+</ol>
+
+<p>And hypothetically a CI/CD workflow could follow this outline:</p>
+
+<ol>
+  <li>Commit hook captures your new code commit, and proceeds to do the following:
+    <ul>
+      <li>build</li>
+      <li>execute automated tests</li>
+      <li>deploy to a target endpoint (example: DEV, QA)</li>
+    </ul>
+  </li>
+  <li>Once the prior step completes, and you are happy with the results, another build trigger could be a one-button <code class="highlighter-rouge">deploy master</code> button, in which case:
+    <ul>
+      <li>the new code commit is then accepted into branch <code class="highlighter-rouge">master</code></li>
+      <li>The deployment script process triggers a deployment to production with your new changes</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="recap">Recap</h2>
+
+<p>Hopefully you now have some insight into working with React.js as well as what the procedure looks like to deploy a front-end application to GitHub Pages.</p>
+
+<p>Here is a summary of steps taken to build and deploy:</p>
+
+<ul>
+  <li>Verified you have a working development environment</li>
+  <li>Constructed a new React.js project</li>
+  <li>Spun up a local working copy of the project</li>
+  <li>Tested and confirmed the project is working in your web browser</li>
+  <li>Deployed your application to your <code class="highlighter-rouge">gh-pages</code> site</li>
+  <li>Validated the deployment was successful, and your application is functioning as intended</li>
+</ul>
+
+<p>Not a bad way to spend a few hours on a Sunday afternoon! You by now have an overview of the process to construct an application, make some changes, and deploy - all very handy skills to refine and use throughout your software development endeavors.</p>
+
+<p><strong>Check it out here:</strong> <a href="https://adamdubey.github.io/todo-app">todo-app</a></p>
+
+<p>Glad I’ve gotten around to working on this one, until next time…</p>
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>tech stack: OS X, React.js, Semantic UI, Git, Node.js <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>YMMV on getting your own workspace setup, as there can be multiple variables with languages, packages, and operating systems to select from - if you are in doubt, please consult the <a href="https://reactjs.org/">official React documentation</a>. Also, if you get stuck during initial configuration, <em>it’s probably a configuration or package dependency</em> <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-09-15T00:00:00-05:00">September 15, 2019</time></p>
+        
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="#" class="pagination--pager disabled">Previous</a>
+    
+    
+      <a href="/projects/2020-03-24-homelab-diaries-docker-and-portainer/" class="pagination--pager" title="Homelab Diaries: Docker &amp; Portainer
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/adamdubey" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://www.linkedin.com/in/adam-dubey" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> Linkedin</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Adam Dubey. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js" integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,48 @@
+I"8<p>Getting up and running with Docker and Portainer in the homelab.</p>
+
+<h1 id="existing-infrastructure">Existing Infrastructure</h1>
+
+<p>I’ve recently expanded the actual lab portion of my homelab with another spec-stacked Dell R710, so it quickly got a fresh copy ESXi and added it to the cluster.</p>
+
+<p>Now with fresh hardware up and running, it’s time to get Portainer setup and ready for use!</p>
+
+<h2 id="portainer--docker-a-cursory-overview">Portainer &amp; Docker: A cursory overview</h2>
+
+<p>Docker is typically described as <em>“Enterprise Container Platform for High-Velocity Innovation”</em> and that about sums it up pretty nicely…kinda. I think folks get hung up on some of the deep technical aspects which adds fuzz to the basic understanding, but basically Docker containers provide a standardized environment for your applications to live in. There are numerous ways to configure your container, such as software and operating systems, however all of the containers are sharing the same host hardware, and most importantly the kernel.</p>
+
+<p>Portainer is simply just a management UI to manage Docker environments. I tend to live in the CLI myself, but sometimes GUIs are nice too.</p>
+
+<p>So Portainer isn’t exactly necessary for my needs, I still want to have it in the lab, even if it’s just for practicing and honing skills.</p>
+
+<h2 id="installing-the-docker-host-vm">Installing the Docker Host VM</h2>
+
+<p>For my Docker Host VM, I’m going with Photon OS. If you haven’t used it yet within your homelab, definitely give it a go! It’s really lightweight, and pretty seamless getting an instance running in VSphere since there are both OVA and ISO files.</p>
+
+<p>Follow the process to get the Photon OS VM created per your environment, and perform the setup steps such as changing your password.</p>
+
+<p>Next, we will need to configure Docker, which couldn’t be any easier with PhotonOS - Just enter these two commands:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>systemctl start docker
+<span class="nv">$ </span>systemctl <span class="nb">enable </span>docker
+</code></pre></div></div>
+
+<h2 id="configuring-portainer">Configuring Portainer</h2>
+
+<p>Just a few more commands to go before we’re done…So back at the Photon console:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker volume create portainer_data
+<span class="nv">$ </span>docker run <span class="nt">-d</span> <span class="nt">-p</span> 9000:9000 <span class="nt">-name</span> Portainer <span class="nt">-restart</span> always <span class="nt">-v</span> /var/run/docker.sock:/var/run docker.sock <span class="nt">-v</span> portainer_data:/data portainer/portainer
+</code></pre></div></div>
+
+<p>First we create the volume external to any container named <code class="highlighter-rouge">portainer_data</code>. Next, we install Portainer and configure it to listen on port 9000 with an additional flag to always restart in the event the container stops. Pretty painless eh?</p>
+
+<p>You can open Portainer in your web browser of choice, by navigating to your instance’s IP address followed by the port number, for example:</p>
+
+<p><code class="highlighter-rouge">192.168.3.27:9000</code></p>
+
+<p>And that’s it! Just follow whatever wizards lurk ahead <em>(stuff changes all the time, and whatever I write will probably be obsolete soon)</em>.</p>
+
+<h2 id="next-steps">Next Steps</h2>
+
+<p>Thanks for sticking around! If you’ve followed to this point, the next steps you’d take would be to create project containers as necessary. There are way more features and aspects of each piece of tech I’ve elected to use here, but I feel this gets the practical hands-on approach for those of you playing along at home.</p>
+:ET

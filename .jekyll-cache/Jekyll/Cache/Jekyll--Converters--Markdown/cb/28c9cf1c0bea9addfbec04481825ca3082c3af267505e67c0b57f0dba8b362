@@ -1,0 +1,142 @@
+I"�<p>Transcribing my notes on the topic.</p>
+
+<h1 id="understanding-big-o-notation">Understanding Big-O Notation</h1>
+
+<p>The simplest explanation of Big-O notation is that it serves as a metric for algorithm scalability.</p>
+
+<p>Let’s break that down, starting with understanding algorithms. An algorithm is just a series of steps for solving a problem.</p>
+
+<p>Okay, not too bad, let’s take a look at one of the basic questions this notation solves for:</p>
+
+<p><em>How much harder does something get as you increase your input?</em></p>
+
+<p>The entire point of Big-O notation is to be able to compare how efficiently one algorithm solves big problems compared to another.</p>
+
+<p>Let’s say you have a giant dataset, a list of names for instance. How would you go about determining the best possible way of sorting or searching this list of names? Imagine if you had a list of 10 names, another list of 100 names, or even a list of 1000 names.</p>
+
+<p>This is what Big-O notation tells you! It tells you how well a particular algorithm will do against various problems, such as searching a list of 1000 names.</p>
+
+<h2 id="notation-o1">Notation: O(1)</h2>
+
+<p>Known as Constant Complexity.</p>
+
+<p>Essentially, no matter what you provide as input to the algorithm, it will still run in the same amount of time.</p>
+
+<p>Taking our list of names dataset:</p>
+
+<ul>
+  <li>1 item, 1 second</li>
+  <li>10 items, 1 second</li>
+  <li>100 items, 1 second</li>
+</ul>
+
+<p>Additional real world examples include:</p>
+
+<ul>
+  <li>Determining if a binary number is even or odd</li>
+  <li>Using a constant-size lookup table</li>
+</ul>
+
+<h2 id="notation-olog-n">Notation: O(log n)</h2>
+
+<p>Known as Logarithmic Complexity.</p>
+
+<p>It’s helpful to think of logarithms as exponents in reverse. Basically the calculation time barely increases as you exponentially increase the input numbers.</p>
+
+<p>Back to our list of names:</p>
+
+<ul>
+  <li>1 item, 1 second</li>
+  <li>10 items, 2 seconds</li>
+  <li>100 items, 3 seconds</li>
+</ul>
+
+<p>Real world example:</p>
+
+<ul>
+  <li>Binary search</li>
+  <li>All operations in a Binomial heap</li>
+</ul>
+
+<h2 id="notation-on">Notation: O(n)</h2>
+
+<p>Known as Linear Complexity.</p>
+
+<p>This is probaly the easiest one to grasp as the calculation time increases at the same pace as the input.</p>
+
+<ul>
+  <li>1 item, 1 second</li>
+  <li>10 items, 10 seconds</li>
+  <li>100 items, 100 seconds</li>
+</ul>
+
+<p>Example:</p>
+
+<ul>
+  <li>Unsorted list search</li>
+</ul>
+
+<h2 id="notation-on2">Notation: O(n2)</h2>
+
+<p>Known as Quadratic Complexity.</p>
+
+<p>This might be tricky, especially if you don’t like to get mathematical..</p>
+
+<p>Remember that things raised to the second power means to multiply times itself.</p>
+
+<p>The calculation time increases at the pace of n2.</p>
+
+<ul>
+  <li>1 item, 1 second</li>
+  <li>10 items, 100 seconds</li>
+  <li>100 items, 10,000 seconds</li>
+</ul>
+
+<p>Real world example: Bubble sort</p>
+
+<h2 id="notation-on-1">Notation: O(n!)</h2>
+
+<p>Known as Factorial Complexity, and is probably the biggest gotcha when learning Big-O.</p>
+
+<p>Essentially, <code class="highlighter-rouge">N!</code> is a bad place in the algorithm world. Like very bad…</p>
+
+<p>It means it’s basically unsolvable.</p>
+
+<p>The calculation time increases at the pace of <code class="highlighter-rouge">n!</code>. For example:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># if n = 5</span>
+5x4x3x2x1 <span class="o">=</span> 120
+</code></pre></div></div>
+
+<p>This isn’t so bad at low values of n, as in this example where <code class="highlighter-rouge">n = 5</code>, but it quickly becomes impossible when the values increase. Taking a look at a few other examples:</p>
+
+<ul>
+  <li>N=1, 1 option</li>
+  <li>N=10, 3,628,800 options</li>
+  <li>N=100, 9.332621544×10157 options</li>
+</ul>
+
+<p>Real World Example: Traveling salesman problem</p>
+
+<p><em>“Given a list of cities and the distances between each pair of cities, what is the shortest possible route that visits each city and returns to the origin city?”</em></p>
+
+<p>While this isn’t so much unsolvable, it’s computationally difficult and even more difficult to optimize.</p>
+
+<h3 id="summary">Summary</h3>
+
+<p>Hopefully this helps shed some light on the topic, while there are many great sources on the Net, these notes serve as a great refresher whenever I have to go under the hood on challenging algorithmic problems.</p>
+
+<p>I think the basic takeaways would be:</p>
+
+<ul>
+  <li>
+    <p>Algorithms are lists of steps for solving problems.</p>
+  </li>
+  <li>
+    <p>Some algorithms are good at problems when they’re small, but fail at scale.</p>
+  </li>
+  <li>
+    <p>Big-O notation is the way to tell how good a given algorithm is at solving large problems.</p>
+  </li>
+</ul>
+:ET
