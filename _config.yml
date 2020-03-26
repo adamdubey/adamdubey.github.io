@@ -19,7 +19,7 @@ locale: "en-US"
 title: "adamdubey.github.io"
 title_separator: "-"
 name: "Adam Dubey"
-description: "Adam's personal blog, mostly containing research on topics of interest as well as project reviews."
+description: "Adam's personal blog, mostly containing research on topics of interest as well as project writeups."
 url: "https://adamdubey.github.io"
 baseurl: # the subpath of your site, e.g. "/blog"
 repository: "adamdubey/adamdubey.github.io"
@@ -295,3 +295,16 @@ defaults:
       comments: # true
       share: true
       related: #true
+  # _pages
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+  - scope:
+      path: "/projects/"
+      type: collection
+    values:
+      layout: single
+      author_profile: true
