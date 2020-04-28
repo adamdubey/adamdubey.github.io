@@ -1,0 +1,104 @@
+I"6<p>Building a digital cookbook using Sphinx.</p>
+
+<h1 id="yo-chef">Yo Chef!</h1>
+
+<p>I love to cook! And like many people, I’ve accumulated far too many cookbooks and recipies, which over time becomes highly inefficient when searching for a particular recipe to cook - especially when time is tight during weeknights. I’ve probably pruned my “go to” list of recipies down multiple times, but it still just doesn’t serve me as well as I’d hoped.</p>
+
+<p>Initially I begun to prototype this project during some free time at work one day using Sphinx as I already had familiarity working with it for technical documentation. So here is my solution to digitizing my cookbook - bon appetite!</p>
+
+<h2 id="building-the-cookbook">Building the cookbook</h2>
+
+<p>First things first, create a project workspace. At the time of deployment, I was rebuilding part of my Production lab stack, so I had to go with an Ubuntu VM. I’d strongly recomend leveraging a Docker Container for something like this as it doesn’t need the heavy footprint of a VM.</p>
+
+<p><img src="/assets/images/cookbook/cookbook-vm-settings.png" alt="vm-settings" /></p>
+
+<p><em>I’ve since changed the specs - this was an early iteration during prototyping…</em></p>
+
+<p>Next up to bat is provisioning the enviornment:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 1. Installing Python
+</span><span class="err">$</span> <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python3</span><span class="mf">.6</span>
+
+<span class="c1"># 2. Installing Pip
+</span><span class="err">$</span> <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python3</span><span class="o">-</span><span class="n">pip</span>
+
+<span class="c1"># 3. Installing Sphinx
+</span><span class="err">$</span> <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python3</span><span class="o">-</span><span class="n">sphinx</span>
+</code></pre></div></div>
+
+<p>That’s it! This concludes the required initial tasks to get this project up and running, now it’s just a matter of adding content and deploying.</p>
+
+<h2 id="workflow-overview">Workflow Overview</h2>
+
+<p>To give you an idea of what the end result will look like</p>
+
+<p><img src="/assets/images/cookbook/chef-adam-cookbook.png" alt="chef-adam-cookbook" /></p>
+
+<p>And pretty quickly you’ll notice your docs look a bit different than mine…enter custom themes!</p>
+
+<p>First, you need to install the theme:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">$</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">sphinx_rtd_theme</span>
+</code></pre></div></div>
+<p>Then you need to update a few settings in your conf.py.</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sphinx_rtd_theme</span>
+
+<span class="n">html_theme</span> <span class="o">=</span> <span class="s">'sphinx_rtd_theme'</span>
+
+<span class="n">html_theme_path</span> <span class="o">=</span> <span class="p">[</span><span class="n">sphinx_rtd_theme</span><span class="o">.</span><span class="n">get_html_theme_path</span><span class="p">()]</span>
+</code></pre></div></div>
+
+<p>If you rebuild your documentation, you will see the new theme:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make html
+</code></pre></div></div>
+
+<p>Now onto the workflow! For me, I stick to these steps:</p>
+
+<ol>
+  <li>Create the new dir/file</li>
+</ol>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># if the dir doesn't exist, make one</span>
+<span class="nv">$ </span><span class="nb">mkdir </span>bread <span class="o">&amp;&amp;</span> <span class="nb">cd </span>bread/
+
+<span class="c"># if you're adding a new recipie to an existing dir</span>
+<span class="nv">$ </span><span class="nb">cd </span>bread/
+<span class="nv">$ </span><span class="nb">touch </span>french-country-bread.rst
+</code></pre></div></div>
+
+<ol>
+  <li>Add the file entry in the <code class="highlighter-rouge">index.rst</code></li>
+</ol>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.. toctree::
+   :maxdepth: 2
+   :caption: Bread
+
+   bread/french-country-bread
+</code></pre></div></div>
+
+<ol>
+  <li>Add content to the new file</li>
+</ol>
+
+<p>Add the recipie ingredients and steps of your choosing to the new file.</p>
+
+<ol>
+  <li>Build and verify</li>
+</ol>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>make html
+</code></pre></div></div>
+
+<p>In a browser window, navigate to your local file directory where your project is located and open the <code class="highlighter-rouge">index.html</code> file to view the new changes. Rinse and repeat as necessary!</p>
+
+<p><strong>Deployments</strong></p>
+
+<p>This will probably be contingent upon your own personal workflow, so I won’t spend too much time covering this point. Initially during my prototyping phase, I just used <code class="highlighter-rouge">http.server</code> to quickly deploy internally.</p>
+
+<p>You could do the same, however <code class="highlighter-rouge">http.server</code> is not recomended for a true Production enviornment as it only implements basic security checks. I have my instance locked down and only accessable from few devices within a particular network segment. Just be aware of the limitations and dangers!!</p>
+
+<p>Whatever you decide, once you have your server running you can view your cookbook by dialing up <code class="highlighter-rouge">x.x.x.x:8000</code> in your web browser of choice, and just like that you’ll have yourself a little cookbook!</p>
+:ET

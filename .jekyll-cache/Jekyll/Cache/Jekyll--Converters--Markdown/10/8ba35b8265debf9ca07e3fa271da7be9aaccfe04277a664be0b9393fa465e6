@@ -1,4 +1,4 @@
-I"8<p>Getting up and running with Docker and Portainer in the homelab.</p>
+I"�<p>Getting up and running with Docker and Portainer in the homelab.</p>
 
 <h1 id="existing-infrastructure">Existing Infrastructure</h1>
 
@@ -30,8 +30,9 @@
 
 <p>Just a few more commands to go before we’re done…So back at the Photon console:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker volume create portainer_data
-<span class="nv">$ </span>docker run <span class="nt">-d</span> <span class="nt">-p</span> 9000:9000 <span class="nt">-name</span> Portainer <span class="nt">-restart</span> always <span class="nt">-v</span> /var/run/docker.sock:/var/run docker.sock <span class="nt">-v</span> portainer_data:/data portainer/portainer
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker container run <span class="nt">-d</span> <span class="se">\</span>
+  <span class="nt">-p</span> 9000:9000 <span class="se">\</span>
+  <span class="nt">-v</span> /var/run/docker.sock:/var/run/docker.sock portainer/portainer
 </code></pre></div></div>
 
 <p>First we create the volume external to any container named <code class="highlighter-rouge">portainer_data</code>. Next, we install Portainer and configure it to listen on port 9000 with an additional flag to always restart in the event the container stops. Pretty painless eh?</p>
