@@ -25,7 +25,7 @@ var store = [{
         "url": "http://localhost:4000/projects/2020-03-24-homelab-diaries-docker-and-portainer/",
         "teaser":null},{
         "title": "A Fancy Cookbook",
-        "excerpt":"Building a digital cookbook using Sphinx. Yo Chef! I love to cook! And like many people, I’ve accumulated far too many cookbooks and recipes, which over time becomes highly inefficient when searching for a particular recipe to cook - especially when time is tight during weeknights. I’ve probably pruned my...","categories": [],
+        "excerpt":"Building a digital cookbook using Sphinx &amp; RTD. Yo Chef! I love to cook! And like many people, I’ve accumulated far too many cookbooks and recipes, which over time becomes highly inefficient when searching for a particular recipe to cook - especially when time is tight during weeknights. I’ve probably...","categories": [],
         "tags": [],
         "url": "http://localhost:4000/projects/2020-04-03-a-fancy-cookbook/",
         "teaser":null}]
