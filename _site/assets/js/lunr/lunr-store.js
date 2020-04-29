@@ -10,7 +10,7 @@ var store = [{
         "url": "http://localhost:4000/private-npm-package-development/",
         "teaser":null},{
         "title": "The Big-O Notation",
-        "excerpt":"Transcribing my notes on the topic. Understanding Big-O Notation The simplest explanation of Big-O notation is that it serves as a metric for algorithm scalability. Let’s break that down, starting with understanding algorithms. An algorithm is just a series of steps for solving a problem. Okay, not too bad, let’s...","categories": [],
+        "excerpt":"Reviewing my notes on the topic. Understanding Big-O Notation The simplest explanation of Big-O notation is that it serves as a metric for algorithm scalability. Let’s break that down, starting with understanding algorithms. An algorithm is just a series of steps for solving a problem. Okay, not too bad, let’s...","categories": [],
         "tags": [],
         "url": "http://localhost:4000/big-o-notation/",
         "teaser":null},{

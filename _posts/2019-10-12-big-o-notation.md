@@ -4,7 +4,7 @@ author_profile: true
 title: "The Big-O Notation"
 ---
 
-Transcribing my notes on the topic.
+Reviewing my notes on the topic.
 
 # Understanding Big-O Notation
 
