@@ -8,6 +8,7 @@
 *.so
 .sass-cache/
 _site
+.jekyll-cache
 
 # Packages #
 ############
