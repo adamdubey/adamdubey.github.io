@@ -4,9 +4,9 @@ author_profile: true
 title: "A Fancy Cookbook"
 ---
  
-Building a digital cookbook using Sphinx.
+Building a digital cookbook using Sphinx & RTD.
 
-# Yo Chef!
+*Yo Chef!*
 
 I love to cook! And like many people, I've accumulated far too many cookbooks and recipes, which over time becomes highly inefficient when searching for a particular recipe to cook - especially when time is tight during weeknights. I've probably pruned my "go to" list of recipes down multiple times, but it still just doesn't serve me as well as I'd hoped.
 
