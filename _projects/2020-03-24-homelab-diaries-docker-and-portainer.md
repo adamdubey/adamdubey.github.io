@@ -38,8 +38,9 @@ $ systemctl enable docker
 Just a few more commands to go before we’re done...So back at the Photon console:
 
 ```sh
-$ docker volume create portainer_data
-$ docker run -d -p 9000:9000 -name Portainer -restart always -v /var/run/docker.sock:/var/run docker.sock -v portainer_data:/data portainer/portainer
+$ docker container run -d \
+  -p 9000:9000 \
+  -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer
 ```
 
 First we create the volume external to any container named `portainer_data`. Next, we install Portainer and configure it to listen on port 9000 with an additional flag to always restart in the event the container stops. Pretty painless eh?

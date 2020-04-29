@@ -23,4 +23,9 @@ var store = [{
         "excerpt":"Getting up and running with Docker and Portainer in the homelab. Existing Infrastructure I’ve recently expanded the actual lab portion of my homelab with another spec-stacked Dell R710, so it quickly got a fresh copy ESXi and added it to the cluster. Now with fresh hardware up and running, it’s...","categories": [],
         "tags": [],
         "url": "http://localhost:4000/projects/2020-03-24-homelab-diaries-docker-and-portainer/",
+        "teaser":null},{
+        "title": "A Fancy Cookbook",
+        "excerpt":"Building a digital cookbook using Sphinx. Yo Chef! I love to cook! And like many people, I’ve accumulated far too many cookbooks and recipes, which over time becomes highly inefficient when searching for a particular recipe to cook - especially when time is tight during weeknights. I’ve probably pruned my...","categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/projects/2020-04-03-a-fancy-cookbook/",
         "teaser":null}]
