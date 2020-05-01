@@ -33,4 +33,9 @@ var store = [{
         "excerpt":"Building a digital cookbook using Sphinx &amp; RTD. Yo Chef! I love to cook! And like many people, I’ve accumulated far too many cookbooks and recipes, which over time becomes highly inefficient when searching for a particular recipe to cook - especially when time is tight during weeknights. I’ve probably...","categories": [],
         "tags": [],
         "url": "http://localhost:4000/projects/2020-04-03-a-fancy-cookbook/",
+        "teaser":null},{
+        "title": "Flight tracking with PiAware",
+        "excerpt":"Surely you can’t be serious… Livin’ the dream! Ever wonder exactly how fast or high that plane that just flew by was? Or though, “Geeze, close call there skip”…yeah no, no it wasn’t a close call at all - but you wouldn’t know that unless you had your own ground...","categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/projects/2020-04-13-piaware-flight-tracking/",
         "teaser":null}]
