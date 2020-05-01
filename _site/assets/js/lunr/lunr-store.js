@@ -19,6 +19,11 @@ var store = [{
         "tags": [],
         "url": "http://localhost:4000/projects/2019-09-15-deploying-a-react-app-to-github-pages/",
         "teaser":null},{
+        "title": "Bad Janet",
+        "excerpt":"Move over Alexa, Bad Janet is here now. A trip to the Good Place What a wonderful show! I think Janet has to be my favorite character, and her bad side was so good, I just had to immortalize her to randomly insult my guests because hey, who doesn’t want...","categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/projects/2020-02-14-bad-janet/",
+        "teaser":null},{
         "title": "Homelab Diaries: Docker & Portainer",
         "excerpt":"Getting up and running with Docker and Portainer in the homelab. Existing Infrastructure I’ve recently expanded the actual lab portion of my homelab with another spec-stacked Dell R710, so it quickly got a fresh copy ESXi and added it to the cluster. Now with fresh hardware up and running, it’s...","categories": [],
         "tags": [],
