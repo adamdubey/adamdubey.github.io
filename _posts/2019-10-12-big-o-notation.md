@@ -1,7 +1,7 @@
 ---
 layout: single
 author_profile: true
-title: "The Big-O Notation"
+title: "Notes: Big-O Notation"
 ---
 
 Reviewing my notes on the topic.
