@@ -4,30 +4,35 @@ author_profile: true
 title: "Flight tracking with PiAware"
 ---
 
-Surely you can't be serious...
+_Surely you can't be serious..._
 
-# Livin' the dream!
+# Project Overview
 
-![livin-the-dream](/assets/images/piaware/livin-the-dream.png)
+Over the past few days I had been working on migrating a few services within my "Radio Lab" to containerized services, which freeded up both space on my desk as well as a few Raspberry Pi's, which was exactly what I needed to build a new PiAware ADS-B ground station!
 
-Ever wonder exactly how fast or high that plane that just flew by was? Or though, _"Geeze, close call there skip"_...yeah no, no it wasn't a close call at all - but you wouldn't know that unless you had your own ground station monitoring the skies.
+The minimum bill of materials for this project are:
 
-paragraph 2
+- Raspberry Pi (including power supply, micro sd card, etc to make RasPi work...)
+- FlightAware Pro ADS-B Reciever
+- MCX antenna plug with SMA adapter
 
-Prerequisites:
+There are several kits available out there, or you can piecemeal one together using the components of your choosing.
 
-- Raspberry Pi v2 or greater (Model Zero W can be used as well)
-- 1090 MHz Antenna
+Additionally, before proceeding with the build let's roughly outline the project:
 
-paragraph 3
+A.) Setup/Install/Build
+B.) Testing and Usage
+C.) Expansion
 
-## Installation and setup
+Pretty straight forward, so off to the workbench we go...
 
-Starting out with getting the Raspberry Pi provisioned, it'll be a rather straightforward process. Buster or Noobs OS will be more than sufficient [tested with both, can't vouch for other distros]
+## Setup/Install/Build
 
-During the initial OS configuration, be sure to enable SSH access - it'll come into play shortly!
+To start, I'd advise following these instructions, and stopping after completing step 2:
 
-[piaware](https://flightaware.com/adsb/piaware/install)
+[piaware](https://flightaware.com/adsb/piaware/build)
+
+Once the Pi is booted up there are a few options, and the choice is up to you on how to administer the device,
 
 ## Usage
 
@@ -37,13 +42,13 @@ You now have a <> up and running! So what's next? Well that's entirely up to you
 
 Also contengent is _how busy is air traffic in your area_? Currently due to COVID-19, the skies have been rather empty aside from cargo planes and a few occational 737/A320 & RJs. Additionally, if you are fortunate enough to live in an area with multiple airfields, you will have far more traffic lighting up your map than say being located next to an un-manned airfield that doesn't see much traffic on a regular basis.
 
+## Livin' the dream!
+
 The best recomendations I could give for expansion in general would be two things:
 
 1. [Adding a signal line dampener]()
 2. [Bigger Antenna]()
 
-While the first item is something you'd need to aquire, the latter could actually be made with very basic materials - on the contrary you could also just stick with what you have and try to get it as high in elevation as possible, unobstructed within a 360 degree radius within a 5-foot minum to get a clearer signal from aircraft transponders.
+While the first item is something you'd need to aquire, the latter could actually be made with very basic materials - on the contrary you could also just stick with what you have and try to get it as high in elevation as possible, unobstructed within a 360 degree radius and a 5-foot minum to get a clearer signal from aircraft transponders.
 
-And if you don't care about tracking aircraft, well at the very least you now have a weather radar.
-
-...and don't call me Shirley.
+_...and don't call me Shirley._
