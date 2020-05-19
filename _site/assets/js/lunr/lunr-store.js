@@ -35,7 +35,7 @@ var store = [{
         "url": "http://localhost:4000/projects/2020-04-03-a-fancy-cookbook/",
         "teaser":null},{
         "title": "Flight tracking with PiAware",
-        "excerpt":"Surely you can’t be serious… Livin’ the dream! Ever wonder exactly how fast or high that plane that just flew by was? Or though, “Geeze, close call there skip”…yeah no, no it wasn’t a close call at all - but you wouldn’t know that unless you had your own ground...","categories": [],
+        "excerpt":"Surely you can’t be serious… Project Overview Over the past few days I had been working on migrating a few services within my “Ham Shack” to containerized services, which freeded up both space on my desk as well as a few Raspberry Pi’s, which was exactly what I needed to...","categories": [],
         "tags": [],
         "url": "http://localhost:4000/projects/2020-04-13-piaware-flight-tracking/",
         "teaser":null}]
