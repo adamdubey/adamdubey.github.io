@@ -1,6 +1,6 @@
 var store = [{
         "title": "Ahoy!",
-        "excerpt":"Welcome to my little slice of the Internet! I am a software/electrical engineer, with an endless curiosity to create and tinker with hardware and software solutions. The purpose of this project site is to capture and document various technical projects that I encounter, mainly for future reference as well as...","categories": [],
+        "excerpt":"Welcome to my little slice of the Internet! I am a computer scientist/software engineer, with an endless curiosity to create and tinker with hardware and software solutions. The purpose of this project site is to capture and document various technical projects that I encounter, mainly for future reference as well...","categories": [],
         "tags": [],
         "url": "http://localhost:4000/ahoy!/",
         "teaser":null},{
@@ -9,7 +9,7 @@ var store = [{
         "tags": [],
         "url": "http://localhost:4000/private-npm-package-development/",
         "teaser":null},{
-        "title": "The Big-O Notation",
+        "title": "Notes: Big-O Notation",
         "excerpt":"Reviewing my notes on the topic. Understanding Big-O Notation The simplest explanation of Big-O notation is that it serves as a metric for algorithm scalability. Let’s break that down, starting with understanding algorithms. An algorithm is just a series of steps for solving a problem. Okay, not too bad, let’s...","categories": [],
         "tags": [],
         "url": "http://localhost:4000/big-o-notation/",
@@ -25,7 +25,7 @@ var store = [{
         "url": "http://localhost:4000/projects/2020-02-14-bad-janet/",
         "teaser":null},{
         "title": "Homelab Diaries: Docker & Portainer",
-        "excerpt":"Getting up and running with Docker and Portainer in the homelab. Existing Infrastructure I’ve recently expanded the actual lab portion of my homelab with another spec-stacked Dell R710, so it quickly got a fresh copy ESXi and added it to the cluster. Now with fresh hardware up and running, it’s...","categories": [],
+        "excerpt":"Getting up and running with Docker and Portainer in the homelab. Portainer &amp; Docker: A cursory overview Docker is typically described as “Enterprise Container Platform for High-Velocity Innovation” and that about sums it up pretty nicely…kinda. I think folks get hung up on some of the deep technical aspects which...","categories": [],
         "tags": [],
         "url": "http://localhost:4000/projects/2020-03-24-homelab-diaries-docker-and-portainer/",
         "teaser":null},{

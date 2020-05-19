@@ -286,23 +286,19 @@
         
         <p>Getting up and running with Docker and Portainer in the homelab.</p>
 
-<h1 id="existing-infrastructure">Existing Infrastructure</h1>
-
-<p>I’ve recently expanded the actual lab portion of my homelab with another spec-stacked Dell R710, so it quickly got a fresh copy ESXi and added it to the cluster.</p>
-
-<p>Now with fresh hardware up and running, it’s time to get Portainer setup and ready for use!</p>
-
-<h2 id="portainer--docker-a-cursory-overview">Portainer &amp; Docker: A cursory overview</h2>
+<h1 id="portainer--docker-a-cursory-overview">Portainer &amp; Docker: A cursory overview</h1>
 
 <p>Docker is typically described as <em>“Enterprise Container Platform for High-Velocity Innovation”</em> and that about sums it up pretty nicely…kinda. I think folks get hung up on some of the deep technical aspects which adds fuzz to the basic understanding, but basically Docker containers provide a standardized environment for your applications to live in. There are numerous ways to configure your container, such as software and operating systems, however all of the containers are sharing the same host hardware, and most importantly the kernel.</p>
 
-<p>Portainer is simply just a management UI to manage Docker environments. I tend to live in the CLI myself, but sometimes GUIs are nice too.</p>
+<p>Portainer is simply just a management UI to manage Docker environments. I tend to live in the CLI myself, but sometimes GUIs are nice too, especially if you are managing multiple Docker environments.</p>
 
-<p>So Portainer isn’t exactly necessary for my needs, I still want to have it in the lab, even if it’s just for practicing and honing skills.</p>
+<p>Through several days of experimenting, multiple variations and approaches to administration and pushing the boundaries, I don’t think Portainer really fits my particular workflows other than being useful for getting granular centralized telemetry data of my Docker containers.</p>
 
-<h2 id="installing-the-docker-host-vm">Installing the Docker Host VM</h2>
+<p>So with that being said, here are my two best approaches to working with Portainer in your own labs…</p>
 
-<p>For my Docker Host VM, I’m going with Photon OS. If you haven’t used it yet within your homelab, definitely give it a go! It’s really lightweight, and pretty seamless getting an instance running in VSphere since there are both OVA and ISO files.</p>
+<h2 id="option-1-installing-the-docker-host-vm-with-photon">Option 1: Installing the Docker Host VM with Photon</h2>
+
+<p>For my lab stack, I’m going with Photon OS. If you haven’t used it yet within your homelab, definitely give it a go! It’s really lightweight, and pretty seamless getting an instance running in VSphere since there are both OVA and ISO files.</p>
 
 <p>Follow the process to get the Photon OS VM created per your environment, and perform the setup steps such as changing your password.</p>
 
@@ -312,18 +308,69 @@
 <span class="nv">$ </span>systemctl <span class="nb">enable </span>docker
 </code></pre></div></div>
 
-<h2 id="configuring-portainer">Configuring Portainer</h2>
+<p>In a grand total of 3 minutes, I now have a VM to muck up as much as I want with Docker experiments! Not a big deal if shit goes sideways, rollback to a snapshot or just rebuild the whole VM!</p>
 
-<p>Just a few more commands to go before we’re done…So back at the Photon console:</p>
+<h2 id="option-2-install-the-docker-host-vm-with-ubuntu">Option 2: Install the Docker Host VM with Ubuntu</h2>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker container run <span class="nt">-d</span> <span class="se">\</span>
-  <span class="nt">-p</span> 9000:9000 <span class="se">\</span>
-  <span class="nt">-v</span> /var/run/docker.sock:/var/run/docker.sock portainer/portainer
+<p>I have to admit that I like this option a little bit more than the prior, mainly because I don’t have to context switch as much when it comes to managing the host OS. However, this approach does take a little more time (<em>even with automation</em>), but is totally worth it - especially if you remember to snapshot the VM before proceeding…Into the Production stack will go a fresh VM with the latest Ubuntu offering!</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Update system packages</span>
+
+<span class="nv">$ </span><span class="nb">sudo </span>apt-get update
+<span class="nv">$ </span><span class="nb">sudo </span>apt-get upgrade
+
+<span class="c"># Install Docker and enable service</span>
+
+<span class="nv">$ </span><span class="nb">sudo </span>apt <span class="nb">install </span>docker.io
+<span class="nv">$ </span><span class="nb">sudo </span>systemctl start docker
+<span class="nv">$ </span><span class="nb">sudo </span>systemctl <span class="nb">enable </span>docker
+
+<span class="c"># Fix Permissions to make Docker administration easier</span>
+
+<span class="nv">$ </span><span class="nb">sudo </span>usermod <span class="nt">-aG</span> docker <span class="k">${</span><span class="nv">USER</span><span class="k">}</span>
+<span class="nv">$ </span>su - <span class="k">${</span><span class="nv">USER</span><span class="k">}</span>
 </code></pre></div></div>
 
-<p>First we create the volume external to any container named <code class="highlighter-rouge">portainer_data</code>. Next, we install Portainer and configure it to listen on port 9000 with an additional flag to always restart in the event the container stops. Pretty painless eh?</p>
+<p>And just like that, a new VM is ready and awaiting…</p>
 
-<p>You can open Portainer in your web browser of choice, by navigating to your instance’s IP address followed by the port number, for example:</p>
+<h2 id="configuring-portainer">Configuring Portainer</h2>
+
+<p>Alright now it’s time to make some big decisions, and it’ll come down to answering this question:</p>
+
+<p><em>“How do I want to administer my Docker containers?”</em></p>
+
+<p>Typically I test out a new service in my Lab stack manually first, and then if it’s a Production service, spin it up via Docker Compose.</p>
+
+<p>Let’s take a look at bringing up Portainer manually first:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker container run <span class="nt">-d</span> <span class="se">\</span>
+ <span class="nt">-p</span> 9000:9000 <span class="se">\</span>
+ <span class="nt">-v</span> /var/run/docker.sock:/var/run/docker.sock portainer/portainer
+</code></pre></div></div>
+
+<p>And if we are going to build expressly for Production:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># docker-compose.yml</span>
+
+<span class="na">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">3"</span>
+<span class="na">services</span><span class="pi">:</span>
+  <span class="c1">#####PORTAINER#####</span>
+  <span class="na">portainer</span><span class="pi">:</span>
+    <span class="na">container_name</span><span class="pi">:</span> <span class="s">portainer</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">portainer/portainer</span>
+    <span class="na">volumes</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">portainer_data:/data</span>
+      <span class="pi">-</span> <span class="s">/var/run/docker.sock:/var/run/docker.sock</span>
+    <span class="na">restart</span><span class="pi">:</span> <span class="s">always</span>
+    <span class="na">ports</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">9000:9000"</span>
+
+<span class="c1">#####VOLUMES#####</span>
+<span class="na">volumes</span><span class="pi">:</span>
+  <span class="na">portainer_data</span><span class="pi">:</span>
+</code></pre></div></div>
+
+<p>To finish the install, you can open Portainer in your web browser of choice, by navigating to your instance’s IP address followed by the port number, for example:</p>
 
 <p><code class="highlighter-rouge">192.168.3.27:9000</code></p>
 
@@ -331,7 +378,15 @@
 
 <h2 id="next-steps">Next Steps</h2>
 
-<p>Thanks for sticking around! If you’ve followed to this point, the next steps you’d take would be to create project containers as necessary. There are way more features and aspects of each piece of tech I’ve elected to use here, but I feel this gets the practical hands-on approach for those of you playing along at home.</p>
+<p>Now that the service is running, you can add whatever containers you want to be monitored by Portainer, just by spinning up a new service or adding to your existing docker-compose file and re-building.</p>
+
+<p>As an example, here is my current Lab stack testing a TIG stack <em>(Telegraf, InfluxDB, Grafana)</em> for centralized telemetry:</p>
+
+<p><img src="/assets/images/portainer/portainer-overview.png" alt="portainer-dashboard" /></p>
+
+<p>Just by having the Docker containers all running on the same host, Portainer is able to capture and display them in a single spot.</p>
+
+<p>Happy experimenting!</p>
 
         
       </section>
