@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-05-19T12:05:00-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">adamdubey.github.io</title><subtitle>Adam's personal blog, mostly containing research on topics of interest as well as project writeups.</subtitle><author><name>Adam Dubey</name></author><entry><title type="html">Notes: Big-O Notation</title><link href="http://localhost:4000/big-o-notation/" rel="alternate" type="text/html" title="Notes: Big-O Notation" /><published>2019-10-12T00:00:00-05:00</published><updated>2019-10-12T00:00:00-05:00</updated><id>http://localhost:4000/big-o-notation</id><content type="html" xml:base="http://localhost:4000/big-o-notation/">&lt;p&gt;Reviewing my notes on the topic.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-05-20T09:10:07-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">adamdubey.github.io</title><subtitle>Adam's personal blog, mostly containing research on topics of interest as well as project writeups.</subtitle><author><name>Adam Dubey</name></author><entry><title type="html">Notes: Big-O Notation</title><link href="http://localhost:4000/big-o-notation/" rel="alternate" type="text/html" title="Notes: Big-O Notation" /><published>2019-10-12T00:00:00-05:00</published><updated>2019-10-12T00:00:00-05:00</updated><id>http://localhost:4000/big-o-notation</id><content type="html" xml:base="http://localhost:4000/big-o-notation/">&lt;p&gt;Reviewing my notes on the topic.&lt;/p&gt;
 
 &lt;h1 id=&quot;understanding-big-o-notation&quot;&gt;Understanding Big-O Notation&lt;/h1&gt;
 
@@ -255,6 +255,8 @@
 
 &lt;p&gt;I am a computer scientist/software engineer, with an endless curiosity to create and tinker with hardware and software solutions.&lt;/p&gt;
 
-&lt;p&gt;The purpose of this project site is to capture and document various technical projects that I encounter, mainly for future reference as well as educational value.&lt;/p&gt;
+&lt;p&gt;The purpose of this project site is to capture and document various technical projects that I encounter, mainly for future reference as well as educational value. Hopefully you will be entertained along the way!&lt;/p&gt;
 
-&lt;p&gt;Hopefully you will be entertained along the way!&lt;/p&gt;</content><author><name>Adam Dubey</name></author><summary type="html">Welcome to my little slice of the Internet!</summary></entry></feed>
+&lt;p&gt;V/R and as always,&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/hack-the-planet.gif&quot; alt=&quot;hack-the-planet&quot; /&gt;&lt;/p&gt;</content><author><name>Adam Dubey</name></author><summary type="html">Welcome to my little slice of the Internet!</summary></entry></feed>

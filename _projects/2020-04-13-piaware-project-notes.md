@@ -72,6 +72,6 @@ The best recommendations I could give for expansion in general would be two thin
 1. Adding a signal line dampener
 2. Bigger Antenna
 
-While the first item is something you'd need to acquire, the latter could actually be made with very basic materials - on the contrary you could also just stick with what you have and try to get it as high in elevation as possible, unobstructed within a 360 degree radius and a 5-foot minimum clearance to get a clearer signal from aircraft transponders.
+While the first item is something you'd need to acquire, the latter could actually be made with very basic materials - on the contrary you could also just stick with what you have and try to get it as high in elevation as possible, without a bunch of stuff in the way to get a clearer signal from aircraft transponders.
 
 _...and don't call me Shirley._
