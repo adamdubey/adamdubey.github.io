@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+
+    <meta name="author" content="Adam Dubey">
+    <meta name="description" content="Move over Alexa, Bad Janet is here now.">
+    <meta name="keywords" content="blog,developer,personal">
+
+    
+      <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+    
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Alexa Skills Building: Bad Janet"/>
+<meta name="twitter:description" content="Move over Alexa, Bad Janet is here now."/>
+
+    <meta property="og:title" content="Alexa Skills Building: Bad Janet" />
+<meta property="og:description" content="Move over Alexa, Bad Janet is here now." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adamdubey.github.io/posts/bad-janet/" />
+<meta property="article:published_time" content="2020-02-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-02-13T00:00:00+00:00" />
+
+
+    
+      <base href="https://adamdubey.github.io/posts/bad-janet/">
+    
+    <title>
+  Alexa Skills Building: Bad Janet · adamdubey.github.io
+</title>
+
+    
+      <link rel="canonical" href="https://adamdubey.github.io/posts/bad-janet/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://adamdubey.github.io/css/coder.min.3219ef62ae52679b7a9c19043171c3cd9f523628c2a65f3ef247ee18836bc90b.css" integrity="sha256-MhnvYq5SZ5t6nBkEMXHDzZ9SNijCpl8&#43;8kfuGINryQs=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://adamdubey.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://adamdubey.github.io/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.60.1" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light"
+        onload=" twemoji.parse(document.body); "
+  >
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://adamdubey.github.io/">
+      adamdubey.github.io
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://adamdubey.github.io/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://adamdubey.github.io/projects/">Projects</a>
+          </li>
+        
+      
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Alexa Skills Building: Bad Janet</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2020-02-13T00:00:00Z'>
+                February 13, 2020
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              4-minute read
+            </span>
+          </div>
+          
+          
+        </div>
+      </header>
+
+      <div>
+        
+        <h1 id="project-motivation">Project Motivation</h1>
+<p>Lately, I have been working towards gearing up to sit the AWS Certified Alexa Skills Builder certification. Initially, I received a humorous request to bring Bad Janet to life, and saw the potential to create an Alexa Skill that would quote Bad Janet from The Good Place.</p>
+<p><img src="busty-alexa.gif" alt="busty-alexa"></p>
+<p>From an initial concept, the only &ldquo;tricky&rdquo; part of this project is negotiating the speech synthesis, in which you may have to purposely misspell a word only to have Alexa speak the word correctly.</p>
+<p>An example of this would be the word <em>&ldquo;Pecan&rdquo;</em>, and if you ask a few people how they pronounce the word, you'll most likely hear a few different pronunciations. To help visualize this, here is an example block that you can use within the Alexa Voice &amp; Tone simulator to hear how the same word is pronounced two different ways.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#666">&lt;</span>speak<span style="color:#666">&gt;</span>
+
+ <span style="color:#666">&lt;</span>phoneme alphabet<span style="color:#666">=</span><span style="color:#b44">&#39;ipa&#39;</span> ph<span style="color:#666">=</span><span style="color:#b44">&#39;pɪˈkɑːn&#39;</span><span style="color:#666">&gt;</span>pecan<span style="color:#666">&lt;</span><span style="">/</span><span style="">p</span><span style="">h</span><span style="">o</span><span style="">n</span><span style="">e</span><span style="">m</span><span style="">e</span><span style="">&gt;</span>
+
+ <span style="color:#666">&lt;</span><span style="color:#a2f;font-weight:bold">break</span> time<span style="color:#666">=</span><span style="color:#b44">&#39;1s&#39;</span><span style="color:#666">/</span><span style="color:#666">&gt;</span>
+
+ <span style="color:#666">&lt;</span>phoneme alphabet<span style="color:#666">=</span><span style="color:#b44">&#39;ipa&#39;</span> ph<span style="color:#666">=</span><span style="color:#b44">&#39;ˈpi.kæn&#39;</span><span style="color:#666">&gt;</span>pecan<span style="color:#666">&lt;</span><span style="">/</span><span style="">p</span><span style="">h</span><span style="">o</span><span style="">n</span><span style="">e</span><span style="">m</span><span style="">e</span><span style="">&gt;</span>
+
+<span style="color:#666">&lt;</span><span style="">/</span><span style="">s</span><span style="">p</span><span style="">e</span><span style="">a</span><span style="">k</span><span style="">&gt;</span>
+</code></pre></div><p>More on this in a bit, for now let’s get started&hellip;</p>
+<h2 id="prereq-stuff">Prereq Stuff</h2>
+<p>If you have an Amazon Echo device, I highly encourage you to try this out!</p>
+<p>First, let’s cover the prerequisites:</p>
+<ul>
+<li><a href="https://developer.amazon.com/en-US/alexa">Amazon Developer Services account</a></li>
+<li>Registering your device with your development account</li>
+</ul>
+<p>AWS has some pretty comprehensive guides on getting those two prerequisites setup, which is outside of the scope for this project.</p>
+<p>Once you have your account and device ready to go, navigate to the Alexa Skills Builder console and get ready to create a new skill!</p>
+<h2 id="frameworkboilerplate-section">Framework/Boilerplate section</h2>
+<p>There isn’t too much you’ll have to do aside from the prerequisites as the builder is pretty intuitive and makes creating all types of skills really straightforward.</p>
+<p>As you are following the New Skill Wizard, be sure to select the <code>Custom model</code>, and <code>“Alexa-hosted”</code> for the backend.</p>
+<p>Now for the fun part - building Bad Janet!</p>
+<h2 id="bad-janet">Bad Janet</h2>
+<p>Before going further, let’s establish the character we are trying to bring to live with a little information.</p>
+<p>If you’re not familiar with the show, basically Bad Janet is just a chaotic meme that lives to troll every single character, and this lovely <em>”Not a robot, and not a lady”</em> says some pretty funny insults to everyone.</p>
+<p>So basically, we just need to care about capturing quotes from the show, or at least create some that Bad Janet would say for “authenticity” sake!</p>
+<p><img src="bad-janet.gif" alt="bad-janet"></p>
+<p>Now, let’s get an understanding of what happens whenever we invoke this skill. This sequence is the basis for many other skills you may use without even realizing it!</p>
+<p><img src="bad-janet-infra-overview.png" alt="bad-janet-overview"></p>
+<p>Essentially, when Alexa hears the specific keywords and skill invocation name, a random quote is grabbed from the predefined list of quotes and given back to the user - you.</p>
+<p>So with that understanding, we can go back to defining our character, in this case Bad Janet. Here is an example of what Bad Janet’s quote list looks like:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a2f;font-weight:bold">const</span> data <span style="color:#666">=</span> [
+<span style="color:#b44">&#34;All trains today are delayed by three hours, just like they are everyday. All passengers, you all suck&#34;</span>,
+<span style="color:#b44">&#34;Why don&#39;t you roll off your mom and do it yourself you fat dynk&#34;</span>,
+<span style="color:#b44">&#34;What&#39;s crackin nut butts&#34;</span>,
+<span style="color:#b44">&#34;Go lick your dad&#39;s salty nuts you fat dynk!&#34;</span>,
+];
+</code></pre></div><p>If you recall the <em>&ldquo;Pecan&rdquo;</em> example, you'll see some words within the quote list are purposely misspelled, and again this is done expressly for &ldquo;writing for the ear&rdquo; and not grammatical correctness. For more insight into this, be sure to check out <a href="https://developer.amazon.com/en-US/docs/alexa/custom-skills/speech-synthesis-markup-language-ssml-reference.html">this article</a> on Speech Synthesis.</p>
+<p>And that’s about it&hellip;Once you’re happy with the list, time to test!</p>
+<h2 id="testing-and-usage">Testing and Usage</h2>
+<p><img src="bad-janet-testing.png" alt="bad-janet-testing"></p>
+<p>To test within the alexa development console, navigate to <code>TEST</code> and inside of the simulator window, type in your skill's invocation name, for example <code>open bad janet</code>.</p>
+<p>So onto the usage&hellip;there isn’t much to cover, especially since steps have been taken to associate your physical device with your development account, go ahead and ask Alexa to open your new skill!</p>
+<p>You can totally leave your configuration in <code>development</code> mode and still interact with your physical device(s) without ever publishing the skill should you choose.</p>
+<h2 id="welcome-to-neighborhood-12358w">Welcome to Neighborhood 12358W!</h2>
+<p><img src="wftbbq1.gif" alt="wtfbbq11!"></p>
+<p>Well hot diggity dong! You’ve got yourself your own Bad Janet.</p>
+<p>I hope this project inspires you to go on and explore a new playground interacting with your smart devices! While there are many different types of skills to have a go with, I personally think this is a fun introduction into Amazon’s vast ecosystem as well as a good start towards working on obtaining AWS’ Alexa Skills Builder certification - Good Luck, and don’t fork it up!</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+        <p>Forged with ❤️ in San Francisco</p>
+      
+      
+        ©
+        
+          2019 -
+        
+        2020
+         Adam Dubey 
+      
+      
+      
+    </section>
+  </footer>
+
+    </main>
+
+    
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-136386310-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+    <script>
+(function(f, a, t, h, o, m){
+	a[h]=a[h]||function(){
+		(a[h].q=a[h].q||[]).push(arguments)
+	};
+	o=f.createElement('script'),
+	m=f.getElementsByTagName('script')[0];
+	o.async=1; o.src=t; o.id='fathom-script';
+	m.parentNode.insertBefore(o,m)
+})(document, window, '//analytics.example.com/tracker.js', 'fathom');
+fathom('set', 'siteId', 'ABCDE');
+fathom('trackPageview');
+</script>
+
+
+  </body>
+
+</html>

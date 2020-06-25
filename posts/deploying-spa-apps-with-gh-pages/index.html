@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+
+    <meta name="author" content="Adam Dubey">
+    <meta name="description" content="A journey of building and deploying a React.js application with GitHub Pages.">
+    <meta name="keywords" content="blog,developer,personal">
+
+    
+      <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+    
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Deploying a React.js app with Github Pages"/>
+<meta name="twitter:description" content="A journey of building and deploying a React.js application with GitHub Pages."/>
+
+    <meta property="og:title" content="Deploying a React.js app with Github Pages" />
+<meta property="og:description" content="A journey of building and deploying a React.js application with GitHub Pages." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adamdubey.github.io/posts/deploying-spa-apps-with-gh-pages/" />
+<meta property="article:published_time" content="2019-09-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-09-23T00:00:00+00:00" />
+
+
+    
+      <base href="https://adamdubey.github.io/posts/deploying-spa-apps-with-gh-pages/">
+    
+    <title>
+  Deploying a React.js app with Github Pages · adamdubey.github.io
+</title>
+
+    
+      <link rel="canonical" href="https://adamdubey.github.io/posts/deploying-spa-apps-with-gh-pages/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://adamdubey.github.io/css/coder.min.3219ef62ae52679b7a9c19043171c3cd9f523628c2a65f3ef247ee18836bc90b.css" integrity="sha256-MhnvYq5SZ5t6nBkEMXHDzZ9SNijCpl8&#43;8kfuGINryQs=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://adamdubey.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://adamdubey.github.io/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.60.1" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light"
+        onload=" twemoji.parse(document.body); "
+  >
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://adamdubey.github.io/">
+      adamdubey.github.io
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://adamdubey.github.io/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://adamdubey.github.io/projects/">Projects</a>
+          </li>
+        
+      
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Deploying a React.js app with Github Pages</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2019-09-23T00:00:00Z'>
+                September 23, 2019
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              5-minute read
+            </span>
+          </div>
+          
+          
+        </div>
+      </header>
+
+      <div>
+        
+        <p><em>With a few hours to kill on a lazy Sunday afternoon&hellip;</em></p>
+<h2 id="reactjs--github-pages-will-it-blend">React.js &amp; Github Pages: Will it blend?</h2>
+<p><img src="will-it-blend.png" alt="will-it-blend"></p>
+<p>This is the first I’ve actually attempted to deploy a React.js project to Github Pages. I’ve certainly deployed way more complicated applications into all sorts of different environments, so this shouldn’t be anything too difficult, right?</p>
+<p>(<em>Yea, it’s hella easy - and is a great way to showcase your work!</em>)</p>
+<h2 id="so-lets-build-a-project">So, let’s build a project!</h2>
+<p>Alrighty folks - today we embark upon a journey to build a <em>standard issue</em> <a href="https://github.com/adamdubey/todo-app">To-Do App</a> in React! Since this post is more about the actual deployment process, I will not cover much of the build phase since that’s been done to death already in all kinds of tutorials. At some point I will cover a tutorial with a different project in another post some time in the future&hellip;</p>
+<p>So if you have your own React project you'd like to deploy, or if you're interested in working with the same tech stack<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> , make sure you have a <em>working development environment specific to your programming flavor of choice<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></em>, as well as a GitHub account.</p>
+<h2 id="building-the-application">Building the application</h2>
+<p>A quick rundown of the project layout - the usual structure and suspects are all present:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">.
+├── LICENSE
+├── README.md
+├── app-demo.png
+├── package.json
+├── public
+│   ├── favicon.ico
+│   └── index.html
+├── semantic.json
+└── src
+  ├── App.css
+  ├── App.js
+  ├── App.test.js
+  ├── actions
+  │   ├── index.js
+  │   └── index.spec.js
+  ├── components
+  │   ├── Footer.js
+  │   ├── Link.js
+  │   ├── Todo.js
+  │   └── TodoList.js
+  ├── containers
+  │   ├── AddTodo.css
+  │   ├── AddTodo.js
+  │   ├── FilterLink.js
+  │   └── VisibleTodoList.js
+  ├── index.css
+  ├── index.js
+  ├── reducers
+  │   ├── index.js
+  │   ├── todos.js
+  │   ├── todos.spec.js
+  │   └── visibilityFilter.js
+  └── semantic
+</code></pre></div><p><em>Psst: You too can make your own tree!</em><sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></p>
+<p>I think if I revisit this project, I may expand some of the features such as incorporating a persistent data storage solution as well as user authentication.</p>
+<p>For added bonus points, it'd be pretty quick to containerize and leverage some CI/CD to really boost the production value as a portfolio project app -  dare to dream as the sky's the limit!</p>
+<h2 id="deploying-to-github-pages">Deploying to GitHub Pages</h2>
+<p>Okay, up to this point you should have a working project. If you have a bunch of errors, or your code will not compile, then please do not proceed!!!</p>
+<p>So now we need to add the facilities to be able to deploy to GitHub Pages. To achieve this, we need two things:</p>
+<ul>
+<li>The <code>gh-pages</code> package installed in our project workspace</li>
+<li>Updating the <code>package.json</code> file with a few new commands to enable deployments to <code>gh-pages</code></li>
+</ul>
+<p>To install the <code>gh-pages</code> as a dev-dependency package:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ npm i --save-dev gh-pages
+</code></pre></div><p>Next, within the <code>package.json</code> file you'll need to add the <code>homepage</code> property:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#b44">&#34;homepage&#34;</span><span style="">:</span> <span style="color:#b44">&#34;https://gitname.github.io/your-project-name&#34;</span>
+</code></pre></div><p>And this is the <em>&ldquo;magic part&rdquo;</em> of using GitHub Pages to host your application - by adding the <code>predeploy</code> and <code>deploy</code> commands to the <code>package.json</code> file:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#b44">&#34;scripts&#34;</span><span style="">:</span> {
+<span style="color:#008000;font-weight:bold">&#34;predeploy&#34;</span>: <span style="color:#b44">&#34;npm run build&#34;</span>,
+<span style="color:#008000;font-weight:bold">&#34;deploy&#34;</span>: <span style="color:#b44">&#34;gh-pages -d build&#34;</span>,
+<span style="color:#008000;font-weight:bold">&#34;start&#34;</span>: <span style="color:#b44">&#34;react-scripts start&#34;</span>,
+<span style="color:#008000;font-weight:bold">&#34;build&#34;</span>: <span style="color:#b44">&#34;react-scripts build&#34;</span>,
+<span style="color:#008000;font-weight:bold">&#34;test&#34;</span>: <span style="color:#b44">&#34;react-scripts test --env=jsdom&#34;</span>,
+<span style="color:#008000;font-weight:bold">&#34;eject&#34;</span>: <span style="color:#b44">&#34;react-scripts eject&#34;</span>
+}<span style="">,</span>
+</code></pre></div><p>Basically whenever you execute <code>npm run deploy</code> your application it will use this information. Definitely a piece of cake!</p>
+<p>For context, the <code>predeploy</code> command will just build a production copy of the application locally - it's a good practice to perform a build locally before deploying. Even better if you are leveraging CI/CD within your workflow, as the <code>predeploy</code> script could be extended to build and deploy to a DEV or QA environment for testing purposes before going to production.</p>
+<p>Additionally, the <code>deploy</code> command will perform a build, and then deploy the application to your GitHub Pages site. Bear in mind this is a trigger command which should not be used lightly, please understand what you are doing and certainly know for sure before executing this one!</p>
+<p>Finally, here are the steps to actually deploy your application.</p>
+<p><strong>Build locally and test:</strong></p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ npm run build
+</code></pre></div><p><strong>Deploy your app to GitHub Pages:</strong></p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ npm run deploy
+</code></pre></div><p>That's it! It's really that easy! You should now see your application live at your own GitHub project page. Good Job! 🥳🎉</p>
+<h2 id="recap">Recap</h2>
+<p>Hopefully you now have some insight into working with React.js as well as what the procedure looks like to deploy a front-end application to GitHub Pages.</p>
+<p>To summarize the steps taken to build and deploy the application:</p>
+<ul>
+<li>Configure a working development environment</li>
+<li><code>create-react-app</code> a new project</li>
+<li>Performed some work; Iterated and refactored some more</li>
+<li>Spun up a local working copy of the project to test and verify work</li>
+<li>Deployed the application to target <code>gh-pages</code> site</li>
+<li>Validated the deployment was successful, and the application is functioning as intended</li>
+</ul>
+<p>Not a bad way to spend a few hours on a Sunday afternoon! You now have an overview of the process to construct an application, make some changes, and deploy - all very handy skills to refine and use throughout your software development endeavors.</p>
+<p><strong>Check it out here:</strong> <a href="https://adamdubey.github.io/todo-app">todo-app</a></p>
+<p>Thank you very much for reading!</p>
+<p>Glad I've gotten around to working on this one, until next time&hellip;</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>tech stack: OS X, React.js, Semantic UI, Git, Node.js<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#8617;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>YMMV on getting your own workspace setup, as there can be multiple variables with languages, packages, and operating systems to select from - if you are in doubt, please consult the <a href="https://reactjs.org/">official React documentation</a>. Also, if you get stuck during initial configuration, <em>it's probably a configuration or package dependency</em><a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#8617;</a></p>
+</li>
+<li id="fn:3" role="doc-endnote">
+<p><code>tree</code> is a Linux program, and can be acquired via Homebrew if you're on OS X. Example usage: <code>$ tree -v -L 4 --charset utf-8</code><a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#8617;</a></p>
+</li>
+</ol>
+</section>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+        <p>Forged with ❤️ in San Francisco</p>
+      
+      
+        ©
+        
+          2019 -
+        
+        2020
+         Adam Dubey 
+      
+      
+      
+    </section>
+  </footer>
+
+    </main>
+
+    
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-136386310-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+    <script>
+(function(f, a, t, h, o, m){
+	a[h]=a[h]||function(){
+		(a[h].q=a[h].q||[]).push(arguments)
+	};
+	o=f.createElement('script'),
+	m=f.getElementsByTagName('script')[0];
+	o.async=1; o.src=t; o.id='fathom-script';
+	m.parentNode.insertBefore(o,m)
+})(document, window, '//analytics.example.com/tracker.js', 'fathom');
+fathom('set', 'siteId', 'ABCDE');
+fathom('trackPageview');
+</script>
+
+
+  </body>
+
+</html>
