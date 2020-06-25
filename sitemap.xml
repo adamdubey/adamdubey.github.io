@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://adamdubey.github.io/</loc>
+    <lastmod>2020-05-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adamdubey.github.io/posts/cookbook/</loc>
+    <lastmod>2020-05-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adamdubey.github.io/posts/</loc>
+    <lastmod>2020-05-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adamdubey.github.io/posts/piaware/</loc>
+    <lastmod>2020-04-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adamdubey.github.io/posts/bad-janet/</loc>
+    <lastmod>2020-02-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adamdubey.github.io/posts/private-npm-package-development/</loc>
+    <lastmod>2019-12-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adamdubey.github.io/posts/portainer/</loc>
+    <lastmod>2019-11-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adamdubey.github.io/posts/big-o-notation/</loc>
+    <lastmod>2019-10-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adamdubey.github.io/posts/deploying-spa-apps-with-gh-pages/</loc>
+    <lastmod>2019-09-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adamdubey.github.io/posts/ahoy/</loc>
+    <lastmod>2019-09-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adamdubey.github.io/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://adamdubey.github.io/projects/</loc>
+  </url>
+  
+  <url>
+    <loc>https://adamdubey.github.io/series/</loc>
+  </url>
+  
+  <url>
+    <loc>https://adamdubey.github.io/tags/</loc>
+  </url>
+  
+</urlset>
