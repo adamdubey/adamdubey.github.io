@@ -14,7 +14,9 @@
       <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
     
 
-    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://adamdubey.github.io/yo-docker.png"/>
+
 <meta name="twitter:title" content="Homelab Diaries: Docker management with Portainer"/>
 <meta name="twitter:description" content="Getting up and running with Portainer in the homelab."/>
 
@@ -22,6 +24,7 @@
 <meta property="og:description" content="Getting up and running with Portainer in the homelab." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://adamdubey.github.io/posts/portainer/" />
+<meta property="og:image" content="https://adamdubey.github.io/yo-docker.png" />
 <meta property="article:published_time" content="2019-11-15T00:00:00+00:00" />
 <meta property="article:modified_time" content="2019-11-15T00:00:00+00:00" />
 
@@ -125,6 +128,7 @@
         <p>Taking a look into management solutions for negotiating container sprawl within my homelab.</p>
 <h1 id="the-problem-keeps-growing">The problem keeps growing</h1>
 <p>If you are a Docker fan, then this should be a treat! Think about how many times you've had to execute <code>docker ps -a</code> just to see a list of all the containers you have running on a given system. Now imagine you are maintaining several servers plus your main development rig&hellip;</p>
+<p><img src="yo-docker.png" alt="yo-docker"></p>
 <p>Just within my homelab alone, there is a  minimum of 30 containerized services, which wasn't too terrible to manage for awhile (<em>although extremely tedious</em>). From past experience supporting production systems where Docker was leveraged, the total number of containers wasn't too bad at most places, but I've also been the one on the hook for supporting instances of 50+ containers without any form of management, just all CLI&hellip; yikes.</p>
 <p>So after researching and experimenting in the lab, I've finally found something that can appease the masses both C-Suite and Engineers alike! Here is my journey of discovery and implementation of Portainer, which really is a game changer for managing containers quickly and effortlessly.</p>
 <h2 id="portainer--docker-a-cursory-overview">Portainer &amp; Docker: A cursory overview</h2>
@@ -240,7 +244,7 @@ $ su - <span style="color:#b68;font-weight:bold">${</span><span style="color:#b8
   <footer class="footer">
     <section class="container">
       
-        <p>Forged with ❤️ in San Francisco</p>
+        <p>San Francisco, CA 🇺🇸</p>
       
       
         ©
@@ -250,6 +254,9 @@ $ su - <span style="color:#b68;font-weight:bold">${</span><span style="color:#b8
         2020
          Adam Dubey 
       
+      
+         · 
+        Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
       
       
     </section>
@@ -283,7 +290,7 @@ if (!doNotTrack) {
 	m=f.getElementsByTagName('script')[0];
 	o.async=1; o.src=t; o.id='fathom-script';
 	m.parentNode.insertBefore(o,m)
-})(document, window, '//analytics.example.com/tracker.js', 'fathom');
+})(document, window, '//cdn.usefathom.com/tracker.js', 'fathom');
 fathom('set', 'siteId', 'ABCDE');
 fathom('trackPageview');
 </script>
