@@ -14,7 +14,9 @@
       <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
     
 
-    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://adamdubey.github.io/npm-pkgs.jpg"/>
+
 <meta name="twitter:title" content="Private NPM Package Development"/>
 <meta name="twitter:description" content="A guide to developing and working with private NPM packages."/>
 
@@ -22,6 +24,8 @@
 <meta property="og:description" content="A guide to developing and working with private NPM packages." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://adamdubey.github.io/posts/private-npm-package-development/" />
+<meta property="og:image" content="https://adamdubey.github.io/npm-pkgs.jpg" />
+<meta property="og:image" content="https://adamdubey.github.io/sharkteeth.gif" />
 <meta property="article:published_time" content="2019-12-27T00:00:00+00:00" />
 <meta property="article:modified_time" content="2019-12-27T00:00:00+00:00" />
 
@@ -124,6 +128,8 @@
         
         <p>A primer on developing private NPM packages.</p>
 <h1 id="packages-galore">Packages galore</h1>
+<p><img src="npm-pkgs.jpg" alt="npm-pkgs"></p>
+<p><em>The problem we want to avoid!</em></p>
 <p>Outlined are the procedures and guidelines for private NPM package development. This guide is inspired by an old dev team I was on, and frankly this has served me time and time again when working on internal NPM packages at other companies.</p>
 <p>One of the fundamental principles a Web Development team should embrace is the software programming ideals behind the old Unix philosophy - You should strive to build short, clear, modular, reusable, composable, and extensible code whenever possible.</p>
 <p>Certainly, the best way to realize such ideals is by taking full advantage of NPM by using NPM for importing 3rd-party open-source packages. Additionally, it is also used to manage and host one’s own internal shared libraries as private NPM packages.</p>
@@ -148,6 +154,8 @@ $ npm install
 <li>Merge into Master upon approval</li>
 </ol>
 <p>And so on and so forth&hellip; No need to overcomplicate it.</p>
+<p><img src="sharkteeth.gif" alt="sharkteeth"></p>
+<p><em>SHARK TEETH!</em></p>
 <h2 id="building-and-publishing">Building and Publishing</h2>
 <p>Assuming you’ve followed the usual development workflow, and your changes have been merged into the Master branch, next would be to create a new Task (or Ticket) in your project management software and corresponding Task branch (e.g., <code>T123</code>). Give the task the same name as well as the version being published (e.g. <code>“0.13.0”</code>). Checkout the branch, and follow the steps below to publish a new version of a private NPM package.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#080;font-style:italic"># If there are tests, ALL must pass!</span>
@@ -196,7 +204,7 @@ $ git push --all --follow-tags
 <h3 id="private-npm-credentials">Private NPM Credentials</h3>
 <p>In order to publish or install private packages to and from your NPM organization, you must provide valid credentials via the <code>NPM_TOKEN</code> environment variable. Be sure to export it from your <code>~/.bash_profile</code>.</p>
 <p>The one shown below is merely an example.</p>
-<p><code>export NPM_TOKEN=28775d0b-dc16-5e5e-045f-77369z13ae75</code></p>
+<p><code>export NPM_TOKEN=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX</code></p>
 <p>Most importantly&hellip; Do NOT commit the <code>NPM_TOKEN</code> value. It must be kept confidential, and if you believe it has become compromised, regenerate a new token immediately!</p>
 
       </div>
@@ -221,7 +229,7 @@ $ git push --all --follow-tags
   <footer class="footer">
     <section class="container">
       
-        <p>Forged with ❤️ in San Francisco</p>
+        <p>San Francisco, CA 🇺🇸</p>
       
       
         ©
@@ -231,6 +239,9 @@ $ git push --all --follow-tags
         2020
          Adam Dubey 
       
+      
+         · 
+        Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
       
       
     </section>
@@ -264,7 +275,7 @@ if (!doNotTrack) {
 	m=f.getElementsByTagName('script')[0];
 	o.async=1; o.src=t; o.id='fathom-script';
 	m.parentNode.insertBefore(o,m)
-})(document, window, '//analytics.example.com/tracker.js', 'fathom');
+})(document, window, '//cdn.usefathom.com/tracker.js', 'fathom');
 fathom('set', 'siteId', 'ABCDE');
 fathom('trackPageview');
 </script>
