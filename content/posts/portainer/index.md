@@ -1,9 +1,9 @@
 ---
 title: "Homelab Diaries: Docker management with Portainer"
 description: Getting up and running with Portainer in the homelab.
-date: '2019-11-15'
+date: "2019-11-15"
 images:
-- yo-docker.png
+  - yo-docker.png
 ---
 
 Taking a look into management solutions for negotiating container sprawl within my homelab.
@@ -14,13 +14,15 @@ If you are a Docker fan, then this should be a treat! Think about how many times
 
 ![yo-docker](yo-docker.png)
 
-Just within my homelab alone, there is a  minimum of 30 containerized services, which wasn't too terrible to manage for awhile (_although extremely tedious_). From past experience supporting production systems where Docker was leveraged, the total number of containers wasn't too bad at most places, but I've also been the one on the hook for supporting instances of 50+ containers without any form of management, just all CLI... yikes.
+Just within my homelab alone, there is a minimum of 30 containerized services, which wasn't too terrible to manage for awhile (_although extremely tedious_). From past experience supporting production systems where Docker was leveraged, the total number of containers wasn't too bad at most places, but I've also been the one on the hook for supporting instances of 50+ containers without any form of management, just all CLI... yikes.
 
 So after researching and experimenting in the lab, I've finally found something that can appease the masses both C-Suite and Engineers alike! Here is my journey of discovery and implementation of Portainer, which really is a game changer for managing containers quickly and effortlessly.
 
 ## Portainer & Docker: A cursory overview
 
 Docker is typically described as _“Enterprise Container Platform for High-Velocity Innovation”_ and that about sums it up pretty nicely...kinda. I think folks get hung up on some of the deep technical aspects which adds fuzz to the basic understanding, but basically Docker containers provide a standardized environment for your applications to live in. There are numerous ways to configure your container, such as software and operating systems, however all of the containers are sharing the same host hardware, and most importantly the kernel.
+
+In other words, Docker simply enables you to run and install software without worrying much about the setup and dependencies of the underlying infrastructure - since again the host hardware resources are shared.
 
 Portainer is simply just a management UI to manage Docker environments. I tend to live in the CLI myself, but sometimes GUIs are nice too, especially if you are managing multiple Docker environments.
 
@@ -30,7 +32,7 @@ So with that being said, here are my two best approaches to working with Portain
 
 ## Option 1: Installing the Docker Host VM with Photon
 
-For my lab stack, I’m going with Photon OS. If you haven’t used it yet within your homelab, definitely give it a go! It’s really lightweight, and pretty seamless getting an instance running in VSphere since there are both OVA and ISO files.
+For my lab stack, I've gone with Photon OS. If you haven’t used it yet within your homelab, definitely give it a go! It’s really lightweight, and pretty seamless getting an instance running in VSphere since there are both OVA and ISO files.
 
 Follow the process to get the Photon OS VM created per your environment, and perform the setup steps such as changing your password.
 
@@ -56,6 +58,7 @@ $ sudo apt-get upgrade
 # Install Docker and enable service
 
 $ sudo apt install docker.io
+$ sudo apt install docker-compose
 $ sudo systemctl start docker
 $ sudo systemctl enable docker
 
@@ -111,7 +114,7 @@ Sweet, just a simple command and I’m done, much easier to manage. Just a quick
 ```yml
 # docker-compose.yml
 
-version: '3'
+version: "3"
 services:
 #####PORTAINER#####
 portainer:
@@ -125,13 +128,13 @@ portainer:
     - "9000:9000"
 #####INFLUXDB#####
 influxdb:
- container_name: influxdb
- image: influxdb
- restart: always
- ports:
-   - 8086:8086
- volumes:
-   - influxdb_data:/var/lib/influxdb
+  container_name: influxdb
+  image: influxdb
+  restart: always
+  ports:
+    - 8086:8086
+  volumes:
+    - influxdb_data:/var/lib/influxdb
 ```
 
 Basically, Portainer is able to “see” all other containers that are deployed on the same host, but you’ll have to finish the install steps which you can do by opening the Portainer GUI in your web browser of choice, and navigating to your instance’s IP address followed by the port number, for example:
