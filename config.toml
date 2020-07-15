@@ -1,0 +1,95 @@
+baseurl = "https://adamdubey.github.io/"
+title = "adamdubey.github.io"
+theme = "hugo-coder"
+languagecode = "en"
+defaultcontentlanguage = "en"
+
+paginate = 20
+canonifyurls = true
+timeout = 120000
+
+pygmentsstyle = "emacs"
+pygmentscodefences = true
+pygmentscodefencesguesssyntax = true
+
+googleAnalytics = "UA-136386310-1"
+
+[params]
+    author = "Adam Dubey"
+    description = "Adam Dubey's personal website"
+    keywords = "blog,developer,personal"
+    info = "Intergalactic citizen of the Internet."
+    avatarurl = "images/avatar.jpeg"
+    #gravatar = "john.doe@example.com"
+    footercontent = "San Francisco, CA 🇺🇸"
+
+    dateformat = "January 2, 2006"
+
+    hideFooter = false
+    hideCredits = false
+    hideCopyright = false
+    since = 2019
+
+    # Git Commit in Footer, uncomment the line below to enable it.
+    #commit = "https://github.com/luizdepra/hugo-coder/tree/"
+
+    rtl = false
+
+    # Specify light/dark colorscheme
+    # Supported values:
+    # "auto" (use preference set by browser)
+    # "dark" (dark background, light foreground)
+    # "light" (light background, dark foreground) (default)
+    colorscheme = "light"
+
+    # Series see also post count
+    maxSeeAlsoItems = 5
+
+    # Enable Twemoji
+    enableTwemoji = true
+
+    # Custom CSS
+    custom_css = []
+
+    # Custom JS
+    custom_js = []
+
+# If you want to use fathom(https://usefathom.com) for analytics, add this section
+[params.fathomAnalytics]
+    siteID = "ABCDE"
+    # Default value is cdn.usefathom.com, overwrite this if you are self-hosting
+    #serverURL = "analytics.example.com"
+
+[taxonomies]
+  category = "categories"
+  series = "series"
+  tag = "tags"
+
+[[params.social]]
+    name = "Github"
+    icon = "fab fa-github"
+    weight = 1
+    url = "https://github.com/adamdubey/"
+[[params.social]]
+    name = "LinkedIn"
+    icon = "fab fa-linkedin"
+    weight = 4
+    url = "https://www.linkedin.com/in/adam-dubey/"
+
+
+
+[languages]
+    [languages.en]
+        languagename = "English"
+
+        [languages.en.menu]
+
+            [[languages.en.menu.main]]
+            name = "Blog"
+            weight = 1
+            url = "/posts/"
+
+            [[languages.en.menu.main]]
+            name = "Projects"
+            weight = 2
+            url = "/projects/"
