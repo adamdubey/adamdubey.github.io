@@ -119,10 +119,9 @@ Stay tuned &amp;amp; as always,</description>
       
       <guid>https://adamdubey.github.io/projects/</guid>
       <description>Various projects and demo applications.
- Fibonacci Calculator 🧮 Taking a look at SPA Microservice Architecture from the lens of CI/CD and Docker.
- Javascript30: Project Gallery 🎨 A gallery of completed projects from the 30 Days of Javascript Challenge presented by Wes Bos.
- Crypto Dashboard App 💰 Revisiting the FinTech world by rapidly prototyping a basic dashboard app to display real-time cryptocurrency prices.
- React To-Do App 🗒 A To-Do application written in React.</description>
+ Fibonacci Calculator 🧮 Taking a look at scalable Microservice Architecture from the lens of CI/CD, featuring Docker and Kubernetes.
+ Javascript30: Project Gallery 🎨 A gallery of all completed projects created from the 30 Days of Javascript Challenge as presented by Wes Bos.
+ Crypto Dashboard App 💰 Revisiting the FinTech world by rapidly prototyping a basic dashboard app to display real-time cryptocurrency prices.</description>
     </item>
     
   </channel>

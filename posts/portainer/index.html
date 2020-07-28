@@ -129,15 +129,16 @@
 <h1 id="the-problem-keeps-growing">The problem keeps growing</h1>
 <p>If you are a Docker fan, then this should be a treat! Think about how many times you've had to execute <code>docker ps -a</code> just to see a list of all the containers you have running on a given system. Now imagine you are maintaining several servers plus your main development rig&hellip;</p>
 <p><img src="yo-docker.png" alt="yo-docker"></p>
-<p>Just within my homelab alone, there is a  minimum of 30 containerized services, which wasn't too terrible to manage for awhile (<em>although extremely tedious</em>). From past experience supporting production systems where Docker was leveraged, the total number of containers wasn't too bad at most places, but I've also been the one on the hook for supporting instances of 50+ containers without any form of management, just all CLI&hellip; yikes.</p>
+<p>Just within my homelab alone, there is a minimum of 30 containerized services, which wasn't too terrible to manage for awhile (<em>although extremely tedious</em>). From past experience supporting production systems where Docker was leveraged, the total number of containers wasn't too bad at most places, but I've also been the one on the hook for supporting instances of 50+ containers without any form of management, just all CLI&hellip; yikes.</p>
 <p>So after researching and experimenting in the lab, I've finally found something that can appease the masses both C-Suite and Engineers alike! Here is my journey of discovery and implementation of Portainer, which really is a game changer for managing containers quickly and effortlessly.</p>
 <h2 id="portainer--docker-a-cursory-overview">Portainer &amp; Docker: A cursory overview</h2>
 <p>Docker is typically described as <em>“Enterprise Container Platform for High-Velocity Innovation”</em> and that about sums it up pretty nicely&hellip;kinda. I think folks get hung up on some of the deep technical aspects which adds fuzz to the basic understanding, but basically Docker containers provide a standardized environment for your applications to live in. There are numerous ways to configure your container, such as software and operating systems, however all of the containers are sharing the same host hardware, and most importantly the kernel.</p>
+<p>In other words, Docker simply enables you to run and install software without worrying much about the setup and dependencies of the underlying infrastructure - since again the host hardware resources are shared.</p>
 <p>Portainer is simply just a management UI to manage Docker environments. I tend to live in the CLI myself, but sometimes GUIs are nice too, especially if you are managing multiple Docker environments.</p>
 <p>Through several days of experimenting, multiple variations and approaches to administration and pushing the boundaries, I don't think Portainer really fits my particular workflows other than being useful for getting granular centralized telemetry data of my Docker containers.</p>
 <p>So with that being said, here are my two best approaches to working with Portainer in your own labs&hellip;</p>
 <h2 id="option-1-installing-the-docker-host-vm-with-photon">Option 1: Installing the Docker Host VM with Photon</h2>
-<p>For my lab stack, I’m going with Photon OS. If you haven’t used it yet within your homelab, definitely give it a go! It’s really lightweight, and pretty seamless getting an instance running in VSphere since there are both OVA and ISO files.</p>
+<p>For my lab stack, I've gone with Photon OS. If you haven’t used it yet within your homelab, definitely give it a go! It’s really lightweight, and pretty seamless getting an instance running in VSphere since there are both OVA and ISO files.</p>
 <p>Follow the process to get the Photon OS VM created per your environment, and perform the setup steps such as changing your password.</p>
 <p>Next, we will need to configure Docker, which couldn’t be any easier with PhotonOS - Just enter these two commands:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ systemctl start docker
@@ -153,6 +154,7 @@ $ sudo apt-get upgrade
 <span style="color:#080;font-style:italic"># Install Docker and enable service</span>
 
 $ sudo apt install docker.io
+$ sudo apt install docker-compose
 $ sudo systemctl start docker
 $ sudo systemctl <span style="color:#a2f">enable</span> docker
 
@@ -191,7 +193,7 @@ $ su - <span style="color:#b68;font-weight:bold">${</span><span style="color:#b8
 </span></code></pre></div><p>Sweet, just a simple command and I’m done, much easier to manage. Just a quick aside, here is that same Docker Compose file with an instance of InfluxDB to be created at the same time:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#080;font-style:italic"># docker-compose.yml</span><span style="color:#bbb">
 </span><span style="color:#bbb">
-</span><span style="color:#bbb"></span>version:<span style="color:#bbb"> </span><span style="color:#b44">&#39;3&#39;</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span>version:<span style="color:#bbb"> </span><span style="color:#b44">&#34;3&#34;</span><span style="color:#bbb">
 </span><span style="color:#bbb"></span>services:<span style="color:#bbb">
 </span><span style="color:#bbb"></span><span style="color:#080;font-style:italic">#####PORTAINER#####</span><span style="color:#bbb">
 </span><span style="color:#bbb"></span>portainer:<span style="color:#bbb">
@@ -205,13 +207,13 @@ $ su - <span style="color:#b68;font-weight:bold">${</span><span style="color:#b8
 </span><span style="color:#bbb">    </span>-<span style="color:#bbb"> </span><span style="color:#b44">&#34;9000:9000&#34;</span><span style="color:#bbb">
 </span><span style="color:#bbb"></span><span style="color:#080;font-style:italic">#####INFLUXDB#####</span><span style="color:#bbb">
 </span><span style="color:#bbb"></span>influxdb:<span style="color:#bbb">
-</span><span style="color:#bbb"> </span>container_name:<span style="color:#bbb"> </span>influxdb<span style="color:#bbb">
-</span><span style="color:#bbb"> </span>image:<span style="color:#bbb"> </span>influxdb<span style="color:#bbb">
-</span><span style="color:#bbb"> </span>restart:<span style="color:#bbb"> </span>always<span style="color:#bbb">
-</span><span style="color:#bbb"> </span>ports:<span style="color:#bbb">
-</span><span style="color:#bbb">   </span>-<span style="color:#bbb"> </span><span style="color:#666">8086</span>:<span style="color:#666">8086</span><span style="color:#bbb">
-</span><span style="color:#bbb"> </span>volumes:<span style="color:#bbb">
-</span><span style="color:#bbb">   </span>-<span style="color:#bbb"> </span>influxdb_data:/var/lib/influxdb<span style="color:#bbb">
+</span><span style="color:#bbb">  </span>container_name:<span style="color:#bbb"> </span>influxdb<span style="color:#bbb">
+</span><span style="color:#bbb">  </span>image:<span style="color:#bbb"> </span>influxdb<span style="color:#bbb">
+</span><span style="color:#bbb">  </span>restart:<span style="color:#bbb"> </span>always<span style="color:#bbb">
+</span><span style="color:#bbb">  </span>ports:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span>-<span style="color:#bbb"> </span><span style="color:#666">8086</span>:<span style="color:#666">8086</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span>volumes:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span>-<span style="color:#bbb"> </span>influxdb_data:/var/lib/influxdb<span style="color:#bbb">
 </span></code></pre></div><p>Basically, Portainer is able to “see” all other containers that are deployed on the same host, but you’ll have to finish the install steps which you can do by opening the Portainer GUI in your web browser of choice, and navigating to your instance’s IP address followed by the port number, for example:</p>
 <p><code>192.168.3.27:9000</code></p>
 <p>And that’s it! Just follow whatever wizards lurk ahead <em>(stuff changes all the time, and whatever I write will probably be obsolete soon)</em>.</p>
