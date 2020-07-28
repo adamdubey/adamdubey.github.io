@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>adamdubey.github.io</title>
+    <link>https://adamdubey.github.io/</link>
+    <description>Recent content on adamdubey.github.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 23 Jun 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://adamdubey.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Summer Hackathon 2020: Migrating to Hugo</title>
+      <link>https://adamdubey.github.io/posts/migrating-to-hugo/</link>
+      <pubDate>Tue, 23 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://adamdubey.github.io/posts/migrating-to-hugo/</guid>
+      <description>Migrating to Hugo I&#39;ve really put this project off for too long&amp;hellip;
+It&#39;s finally time to migrate my blog (this site) to Hugo from Jekyll. The primary reason and desire to do this is simply because I have just grown tired of juggling all of the nuances with the Ruby/Jekyll ecosystems. While I still support a few project sites powered by Jekyll, I&#39;d rather focus more on crafting content for my blog and less effort on maintenance.</description>
+    </item>
+    
+    <item>
+      <title>Homelab Diaries: Making a fancy Cookbook</title>
+      <link>https://adamdubey.github.io/posts/cookbook/</link>
+      <pubDate>Thu, 07 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://adamdubey.github.io/posts/cookbook/</guid>
+      <description>Yo Chef! The Chef of Chefs!
+I love to cook! And like many people, I&#39;ve accumulated far too many cookbooks and recipes, which over time becomes highly inefficient when searching for a particular recipe to cook - especially when time is tight during weeknights. I&#39;ve probably pruned my &amp;ldquo;go to&amp;rdquo; list of recipes down multiple times, but it still just doesn&#39;t serve me as well as I&#39;d hoped.
+Initially I began to prototype this project during some free time at work one day using Sphinx, as I already had familiarity working with it for technical documentation.</description>
+    </item>
+    
+    <item>
+      <title>Build your own Ground Station with PiAware</title>
+      <link>https://adamdubey.github.io/posts/piaware/</link>
+      <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://adamdubey.github.io/posts/piaware/</guid>
+      <description>If you are an Aviation enthusiast, have I got the project for you!
+Surely you can&#39;t be serious&amp;hellip;
+Livin’ the dream Hey Capt. Brickheart, YOU’RE ON GUAAARRRD!
+Over the past few days I had been working on migrating a few services within my &amp;ldquo;Ham Shack&amp;rdquo; to containerized services, which freeded up both space on my desk as well as a few Raspberry Pi&#39;s, which was exactly what I needed to build a new PiAware ADS-B ground station!</description>
+    </item>
+    
+    <item>
+      <title>Adventures of building an Alexa Skill</title>
+      <link>https://adamdubey.github.io/posts/bad-janet/</link>
+      <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://adamdubey.github.io/posts/bad-janet/</guid>
+      <description>Project Motivation Lately, I have been working towards gearing up to sit the AWS Certified Alexa Skills Builder certification. Initially, I received a humorous request to bring Bad Janet to life, and saw the potential to create an Alexa Skill that would quote Bad Janet from The Good Place.
+From an initial concept, the only &amp;ldquo;tricky&amp;rdquo; part of this project is negotiating the speech synthesis, in which you may have to purposely misspell a word only to have Alexa speak the word correctly.</description>
+    </item>
+    
+    <item>
+      <title>Private NPM Package Development</title>
+      <link>https://adamdubey.github.io/posts/private-npm-package-development/</link>
+      <pubDate>Fri, 27 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://adamdubey.github.io/posts/private-npm-package-development/</guid>
+      <description>A primer on developing private NPM packages.
+Packages galore The problem we want to avoid!
+Outlined are the procedures and guidelines for private NPM package development. This guide is inspired by an old dev team I was on, and frankly this has served me time and time again when working on internal NPM packages at other companies.
+One of the fundamental principles a Web Development team should embrace is the software programming ideals behind the old Unix philosophy - You should strive to build short, clear, modular, reusable, composable, and extensible code whenever possible.</description>
+    </item>
+    
+    <item>
+      <title>Homelab Diaries: Docker management with Portainer</title>
+      <link>https://adamdubey.github.io/posts/portainer/</link>
+      <pubDate>Fri, 15 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://adamdubey.github.io/posts/portainer/</guid>
+      <description>Taking a look into management solutions for negotiating container sprawl within my homelab.
+The problem keeps growing If you are a Docker fan, then this should be a treat! Think about how many times you&#39;ve had to execute docker ps -a just to see a list of all the containers you have running on a given system. Now imagine you are maintaining several servers plus your main development rig&amp;hellip;
+Just within my homelab alone, there is a minimum of 30 containerized services, which wasn&#39;t too terrible to manage for awhile (although extremely tedious).</description>
+    </item>
+    
+    <item>
+      <title>Engineering Diaries: Big O Notation</title>
+      <link>https://adamdubey.github.io/posts/big-o-notation/</link>
+      <pubDate>Sat, 12 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://adamdubey.github.io/posts/big-o-notation/</guid>
+      <description>A look at one of my old engineering notebooks containing notes about the Big O Notation.
+Understanding Big-O Notation The simplest explanation of Big-O notation is that it serves as a metric for algorithm scalability.
+If you are currently cringing, or just trying to learn then stick around! You may find the answers you seek&amp;hellip;
+All memes aside, let&#39;s break down the opening statement by first establishing an understanding of algorithms first.</description>
+    </item>
+    
+    <item>
+      <title>Deploying a React.js app with Github Pages</title>
+      <link>https://adamdubey.github.io/posts/deploying-spa-apps-with-gh-pages/</link>
+      <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://adamdubey.github.io/posts/deploying-spa-apps-with-gh-pages/</guid>
+      <description>With a few hours to kill on a lazy Sunday afternoon&amp;hellip;
+React.js &amp;amp; Github Pages: Will it blend? This is the first I’ve actually attempted to deploy a React.js project to Github Pages. I’ve certainly deployed way more complicated applications into all sorts of different environments, so this shouldn’t be anything too difficult, right?
+(Yea, it’s hella easy - and is a great way to showcase your work!)
+So, let’s build a project!</description>
+    </item>
+    
+    <item>
+      <title>Ahoy!</title>
+      <link>https://adamdubey.github.io/posts/ahoy/</link>
+      <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://adamdubey.github.io/posts/ahoy/</guid>
+      <description>Welcome! I&#39;m Adam, welcome to my slice of the Internet! 👋
+I am a software engineer with a background in Computer Science and Network Engineering. I have an endless passion and curiosity to create and tinker with various hardware and software based projects. My aim is to entertain and share my experiences working with technology - which is the purpose of this website!
+Stay tuned &amp;amp; as always,</description>
+    </item>
+    
+    <item>
+      <title>Projects</title>
+      <link>https://adamdubey.github.io/projects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://adamdubey.github.io/projects/</guid>
+      <description>Various projects and demo applications.
+ Fibonacci Calculator 🧮 Taking a look at scalable Microservice Architecture from the lens of CI/CD, featuring Docker and Kubernetes.
+ Javascript30: Project Gallery 🎨 A gallery of all completed projects created from the 30 Days of Javascript Challenge as presented by Wes Bos.
+ Crypto Dashboard App 💰 Revisiting the FinTech world by rapidly prototyping a basic dashboard app to display real-time cryptocurrency prices.</description>
+    </item>
+    
+  </channel>
+</rss>

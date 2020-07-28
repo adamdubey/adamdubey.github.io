@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+
+    <meta name="author" content="Adam Dubey">
+    <meta name="description" content="Summer Hackathon 2020: Out with the old, in with the new!">
+    <meta name="keywords" content="blog,developer,personal">
+
+    
+      <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+    
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://adamdubey.github.io/procrastinating.jpg"/>
+
+<meta name="twitter:title" content="Summer Hackathon 2020: Migrating to Hugo"/>
+<meta name="twitter:description" content="Summer Hackathon 2020: Out with the old, in with the new!"/>
+
+    <meta property="og:title" content="Summer Hackathon 2020: Migrating to Hugo" />
+<meta property="og:description" content="Summer Hackathon 2020: Out with the old, in with the new!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adamdubey.github.io/posts/migrating-to-hugo/" />
+<meta property="og:image" content="https://adamdubey.github.io/procrastinating.jpg" />
+<meta property="og:image" content="https://adamdubey.github.io/hackathon.gif" />
+<meta property="og:image" content="https://adamdubey.github.io/wtf-deployment.gif" />
+<meta property="og:image" content="https://adamdubey.github.io/legacy-jekyll-site.png" />
+<meta property="og:image" content="https://adamdubey.github.io/current-v2-site.png" />
+<meta property="article:published_time" content="2020-06-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-06-23T00:00:00+00:00" />
+
+
+    
+      <base href="https://adamdubey.github.io/posts/migrating-to-hugo/">
+    
+    <title>
+  Summer Hackathon 2020: Migrating to Hugo · adamdubey.github.io
+</title>
+
+    
+      <link rel="canonical" href="https://adamdubey.github.io/posts/migrating-to-hugo/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://adamdubey.github.io/css/coder.min.3219ef62ae52679b7a9c19043171c3cd9f523628c2a65f3ef247ee18836bc90b.css" integrity="sha256-MhnvYq5SZ5t6nBkEMXHDzZ9SNijCpl8&#43;8kfuGINryQs=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://adamdubey.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://adamdubey.github.io/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.60.1" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light"
+        onload=" twemoji.parse(document.body); "
+  >
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://adamdubey.github.io/">
+      adamdubey.github.io
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://adamdubey.github.io/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://adamdubey.github.io/projects/">Projects</a>
+          </li>
+        
+      
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Summer Hackathon 2020: Migrating to Hugo</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2020-06-23T00:00:00Z'>
+                June 23, 2020
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              4-minute read
+            </span>
+          </div>
+          
+          
+        </div>
+      </header>
+
+      <div>
+        
+        <h2 id="migrating-to-hugo">Migrating to Hugo</h2>
+<p><em>I've really put this project off for too long&hellip;</em></p>
+<p><img src="procrastinating.jpg" alt="procrastinating"></p>
+<p>It's finally time to migrate my blog (<em>this site</em>) to Hugo from Jekyll. The primary reason and desire to do this is simply because I have just grown tired of juggling all of the nuances with the Ruby/Jekyll ecosystems. While I still support a few project sites powered by Jekyll, I'd rather focus more on crafting content for my blog and less effort on maintenance.</p>
+<p>So Hugo, welcome - glad you are the solution here! I've yet to spend more than a few hours tinkering with this tech stack, but overall:</p>
+<ul>
+<li>it's fast and intuitive</li>
+<li>gentle learning curve (pick a theme you like, and follow the basic example structures provided)</li>
+<li>way less bloat than you get with the Ruby/Jekyll stack</li>
+</ul>
+<p>Well with some extra time in the schedule, and it currently being Summer, I felt inspired to set a fun challenge to tackle this migration&hellip; a Hackathon!</p>
+<h2 id="my-summer-hackathon-2020-a-new-challenger-appears">My Summer Hackathon 2020: A new challenger appears!</h2>
+<p>Okay, this is starting to become exciting - dedicate a few days to just primarily focus on this migration project and take care of some housekeeping with a bit of backlogged material, and bonus points to aligning the event with the weekend to get a few late nights of work in.</p>
+<p><img src="hackathon.gif" alt="hackathon"></p>
+<p><strong>Project Outline:</strong></p>
+<ul>
+<li>Setup Hugo/template framework</li>
+<li>Configuration details</li>
+<li>Migrate existing posts/projects</li>
+<li>Establish deployment workflow</li>
+<li>Bonus Points for CI/CD integration (<em>it'll happen either way 😏</em>)</li>
+</ul>
+<p><strong>My proposed schedule:</strong></p>
+<p><em>Basically just mixing the Olympics with a Hackathon&hellip;</em></p>
+<p>I felt this to be a good balance of dedicated time to allocate, especially since I still have to go to work and deal with some other ongoing projects. All in all, I think I could've cut a day out of this and still would be fine.</p>
+<ul>
+<li>Day 0: 18 June</li>
+<li>Day 1: 19 June</li>
+<li>Day 2: 20 June</li>
+<li>Day 3: 21 June</li>
+<li>Day 4: 22 June</li>
+</ul>
+<p>Ultimately, the target goal is 80% of the migration in a completed state, I don't want to rush this, and am purposely setting the stage to just enjoy working through any challenges that come my way. Additionally, I don't anticipate deploying the site until a few days afterwards just so I can cross-check everything before launch.</p>
+<h2 id="deploying-">Deploying 🚀</h2>
+<p>It seems there are a few ways of deploying a Hugo site&hellip;? Yeah I don't know what the most pragmatic approach to deployments is, since the official documentation doesn't quite make it easy for just a single repo site hosting because all the variations I've tried ended as <code>failure to launch</code>.</p>
+<p><img src="wtf-deployment.gif" alt="wtf-deployment"></p>
+<p><em>I want my Hugo blog damnit!</em></p>
+<p>However, when it came time to deploy this time I got it on the first try! 😍</p>
+<p>Here are the steps I took to deliver a successful deployment:</p>
+<p><strong>NOTE:</strong> You only need to deploy the contents of <code>/public</code> onto the <code>master</code> branch!</p>
+<ol>
+<li>Run <code>hugo</code> to build the site and produce the <code>/public</code> artifact</li>
+<li>You only need to deploy the contents of <code>/public</code>;</li>
+<li>Lazy way is to just copy/pasta the files from <code>/public</code> over to the root project directory</li>
+<li>Commit &amp; Push;</li>
+<li>Follow typical PR workflow to merge into <code>master</code></li>
+</ol>
+<p>And that's it&hellip; that was the &ldquo;magic bullet&rdquo; that worked for me. So far it's been the only process that has worked every time for just <em>&ldquo;Hugo blog + Github Pages hosting&rdquo;</em> deployments. Now it's certainly not the most glamorous way of going about it, but it's easy to automate based on your workflow.</p>
+<p>Unfortunately I ran short on time to really focus on building and defining a CI/CD pipeline for this project, and just haven't implemented anything quite yet. At some point I'll have some form of git hook + CI server to perform the heavy lifting and management of building. You can get a sense of all sorts of variations and possibilities around automating your workflow&hellip; The sky's the limit as to what you can automate!</p>
+<h2 id="results--reflections">Results &amp; Reflections</h2>
+<p>Wow, what a huge difference! I found my workflows with Hugo way more streamlined than before with Jekyll, which is a huge plus! 👍 Also, I'd be remiss if I didn't mention not having to worry about several different flavors of syntax, just Markdown and Yaml (<em>for the most part</em>).</p>
+<p>Overall I really enjoyed framing this project as a Hackathon. Sometimes it really helps to just change your frame of mind as frankly I haven't been feeling inspired to do much work on personal projects. Simply just dedicating a few days of just exclusively work on this project, I was able to complete the migration quickly and really reignite a renewed sense of passion once more!</p>
+<p>Lastly, a look at where the site has come from, and where it is currently:</p>
+<p><strong>(Jekyll) Legacy V1 Site:</strong></p>
+<p><img src="legacy-jekyll-site.png" alt="legacy-jekyll-site"></p>
+<hr>
+<p><strong>(Hugo) Current V2 Site:</strong></p>
+<p><img src="current-v2-site.png" alt="hugo-site"></p>
+<hr>
+<p>Thank you very much for reading!</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+        <p>San Francisco, CA 🇺🇸</p>
+      
+      
+        ©
+        
+          2019 -
+        
+        2020
+         Adam Dubey 
+      
+      
+         · 
+        Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+      
+      
+    </section>
+  </footer>
+
+    </main>
+
+    
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-136386310-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+    <script>
+(function(f, a, t, h, o, m){
+	a[h]=a[h]||function(){
+		(a[h].q=a[h].q||[]).push(arguments)
+	};
+	o=f.createElement('script'),
+	m=f.getElementsByTagName('script')[0];
+	o.async=1; o.src=t; o.id='fathom-script';
+	m.parentNode.insertBefore(o,m)
+})(document, window, '//cdn.usefathom.com/tracker.js', 'fathom');
+fathom('set', 'siteId', 'ABCDE');
+fathom('trackPageview');
+</script>
+
+
+  </body>
+
+</html>

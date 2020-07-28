@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+
+    <meta name="author" content="Adam Dubey">
+    <meta name="description" content="A collection of my engineering notes about Big O Notation.">
+    <meta name="keywords" content="blog,developer,personal">
+
+    
+      <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+    
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://adamdubey.github.io/big-o-face.png"/>
+
+<meta name="twitter:title" content="Engineering Diaries: Big O Notation"/>
+<meta name="twitter:description" content="A collection of my engineering notes about Big O Notation."/>
+
+    <meta property="og:title" content="Engineering Diaries: Big O Notation" />
+<meta property="og:description" content="A collection of my engineering notes about Big O Notation." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adamdubey.github.io/posts/big-o-notation/" />
+<meta property="og:image" content="https://adamdubey.github.io/big-o-face.png" />
+<meta property="og:image" content="https://adamdubey.github.io/big-o-graph.png" />
+<meta property="article:published_time" content="2019-10-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-10-12T00:00:00+00:00" />
+
+
+    
+      <base href="https://adamdubey.github.io/posts/big-o-notation/">
+    
+    <title>
+  Engineering Diaries: Big O Notation · adamdubey.github.io
+</title>
+
+    
+      <link rel="canonical" href="https://adamdubey.github.io/posts/big-o-notation/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://adamdubey.github.io/css/coder.min.3219ef62ae52679b7a9c19043171c3cd9f523628c2a65f3ef247ee18836bc90b.css" integrity="sha256-MhnvYq5SZ5t6nBkEMXHDzZ9SNijCpl8&#43;8kfuGINryQs=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://adamdubey.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://adamdubey.github.io/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.60.1" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light"
+        onload=" twemoji.parse(document.body); "
+  >
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://adamdubey.github.io/">
+      adamdubey.github.io
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://adamdubey.github.io/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://adamdubey.github.io/projects/">Projects</a>
+          </li>
+        
+      
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Engineering Diaries: Big O Notation</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2019-10-12T00:00:00Z'>
+                October 12, 2019
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              4-minute read
+            </span>
+          </div>
+          
+          
+        </div>
+      </header>
+
+      <div>
+        
+        <p>A look at one of my old engineering notebooks containing notes about the Big O Notation.</p>
+<h1 id="understanding-bigo-notation">Understanding Big-O Notation</h1>
+<p>The simplest explanation of Big-O notation is that it serves as <strong>a metric for algorithm scalability</strong>.</p>
+<p>If you are currently cringing, or just trying to learn then stick around! You may find the answers you seek&hellip;</p>
+<p><img src="big-o-face.png" alt="big-o-face"></p>
+<p>All memes aside, let's break down the opening statement by first establishing an understanding of algorithms first.</p>
+<p><strong><em>An algorithm is just a series of steps for solving a problem.</em></strong></p>
+<p>Okay, not too bad, let's take a look at one of the basic questions this notation solves for:</p>
+<p><strong><em>How much harder does something get as you increase your input?</em></strong></p>
+<p>The entire point of Big-O notation is to be able to compare how efficiently one algorithm solves big problems compared to another. Now, let's take a look at one of the most common graphs that helps us to visualize this:</p>
+<p><img src="big-o-graph.png" alt="big-o-graph"></p>
+<p>For now, just remember the overall relation between time and input size, and how they look on this graph - I think it'll make more sense as you progress through each Notation and view some of the example code snippets.</p>
+<p>Now back to it - Let's say you have a giant dataset, a list of names for instance. How would you go about determining the best possible way of sorting or searching this list of names? Imagine if you had a list of 10 names, another list of 100 names, or even a list of 1000 names.</p>
+<p>This is what Big-O notation tells you! It tells you how well a particular algorithm will do against various problems, such as searching a list of 1000 names.</p>
+<h2 id="notation-o1">Notation: O(1)</h2>
+<p>Known as Constant Complexity.</p>
+<p>Essentially, no matter what you provide as input to the algorithm, it will still run in the same amount of time.</p>
+<p>Taking our list of names dataset:</p>
+<ul>
+<li>1 item, 1 second</li>
+<li>10 items, 1 second</li>
+<li>100 items, 1 second</li>
+</ul>
+<p><strong>Code Example</strong></p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a2f;font-weight:bold">function</span> constantFunction(n) {
+  <span style="color:#a2f;font-weight:bold">return</span> n<span style="color:#666">*</span>n;
+}
+</code></pre></div><p>Additional real world examples include:</p>
+<ul>
+<li>Determining if a binary number is even or odd</li>
+<li>Using a constant-size lookup table</li>
+</ul>
+<h2 id="notation-olog-n">Notation: O(log n)</h2>
+<p>Known as Logarithmic Complexity.</p>
+<p>It’s helpful to think of logarithms as exponents in reverse. Basically the calculation time barely increases as you exponentially increase the input numbers.</p>
+<p>Back to our list of names:</p>
+<ul>
+<li>1 item, 1 second</li>
+<li>10 items, 2 seconds</li>
+<li>100 items, 3 seconds</li>
+</ul>
+<p><strong>Code Example</strong></p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a2f;font-weight:bold">function</span> logFunction(n) {
+  <span style="color:#a2f;font-weight:bold">for</span> (<span style="color:#a2f;font-weight:bold">let</span> i <span style="color:#666">=</span> <span style="color:#666">1</span>; i <span style="color:#666">&lt;</span> n; i<span style="color:#666">*=</span><span style="color:#666">2</span>) {
+      <span style="color:#a2f;font-weight:bold">const</span> result <span style="color:#666">=</span> i;
+      console.log(result);
+  }
+}
+</code></pre></div><p>Real world example(s):</p>
+<ul>
+<li>Binary search</li>
+<li>All operations in a Binomial heap</li>
+</ul>
+<h2 id="notation-on">Notation: O(n)</h2>
+<p>Known as Linear Complexity.</p>
+<p>This is probably the easiest one to grasp as the calculation time increases at the same pace as the input.</p>
+<ul>
+<li>1 item, 1 second</li>
+<li>10 items, 10 seconds</li>
+<li>100 items, 100 seconds</li>
+</ul>
+<p><strong>Code Example</strong></p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a2f;font-weight:bold">function</span> linearFunction(n) {
+  <span style="color:#a2f;font-weight:bold">for</span> (<span style="color:#a2f;font-weight:bold">var</span> i <span style="color:#666">=</span> <span style="color:#666">0</span>; i <span style="color:#666">&lt;</span> n; i<span style="color:#666">++</span>) {
+      console.log(i)
+  }
+}
+</code></pre></div><p>Example:</p>
+<ul>
+<li>Unsorted list search</li>
+</ul>
+<h2 id="notation-on2">Notation: O(n2)</h2>
+<p>Known as Quadratic Complexity.</p>
+<p>This might be tricky, especially if you don't like to get mathematical..</p>
+<p>Remember that things raised to the second power means to multiply times itself.</p>
+<p>The calculation time increases at the pace of n2.</p>
+<ul>
+<li>1 item, 1 second</li>
+<li>10 items, 100 seconds</li>
+<li>100 items, 10,000 seconds</li>
+</ul>
+<p><strong>Code Example</strong></p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a2f;font-weight:bold">function</span> (<span style="color:#a2f;font-weight:bold">int</span> i <span style="color:#666">=</span> <span style="color:#666">0</span>; i <span style="color:#666">&lt;</span> n; i <span style="color:#666">+=</span> c) {
+  <span style="color:#a2f;font-weight:bold">for</span> (<span style="color:#a2f;font-weight:bold">int</span> j <span style="color:#666">=</span> <span style="color:#666">0</span>; j <span style="color:#666">&lt;</span> n; j <span style="color:#666">+=</span> c) {
+      <span style="color:#080;font-style:italic">// O(1) expressions
+</span><span style="color:#080;font-style:italic"></span>  }
+}
+</code></pre></div><p>Real world example: Bubble sort</p>
+<h2 id="notation-on1">Notation: O(n!)</h2>
+<p>Known as Factorial Complexity, and is probably the biggest gotcha when learning Big-O.</p>
+<p>Essentially, <code>N!</code> is a bad place in the algorithm world. Like very bad&hellip;</p>
+<p>It means it’s basically unsolvable.</p>
+<p>The calculation time increases at the pace of <code>n!</code>. For example:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#080;font-style:italic"># if n = 5</span>
+<span style="color:#b8860b">5x4x3x2x1</span> <span style="color:#666">=</span> <span style="color:#666">120</span>
+</code></pre></div><p>This isn’t so bad at low values of <code>n</code>, as in this example where <code>n = 5</code>, but it quickly becomes impossible when the values increase. Taking a look at a few other examples:</p>
+<ul>
+<li>N=1, 1 option</li>
+<li>N=10, 3,628,800 options</li>
+<li>N=100, 9.332621544×10157 options</li>
+</ul>
+<p>Real World Example: Traveling salesman problem</p>
+<p><em>&ldquo;Given a list of cities and the distances between each pair of cities, what is the shortest possible route that visits each city and returns to the origin city?&quot;</em></p>
+<p>While this isn't so much unsolvable, it's computationally difficult and even more difficult to optimize.</p>
+<h2 id="wrapping-up">Wrapping up</h2>
+<p>While the concept does take some time to become familiar with, you more than likely are dealing with Big O more than you realize - especially if you instantly connected to the code snippets, as most of them are the foundations for many algorithms.</p>
+<p>Hopefully this helps shed some light on the topic, while there are many great sources on the Net, these notes serve as a great refresher whenever I have to go under the hood on challenging algorithmic problems.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+        <p>San Francisco, CA 🇺🇸</p>
+      
+      
+        ©
+        
+          2019 -
+        
+        2020
+         Adam Dubey 
+      
+      
+         · 
+        Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+      
+      
+    </section>
+  </footer>
+
+    </main>
+
+    
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-136386310-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+    <script>
+(function(f, a, t, h, o, m){
+	a[h]=a[h]||function(){
+		(a[h].q=a[h].q||[]).push(arguments)
+	};
+	o=f.createElement('script'),
+	m=f.getElementsByTagName('script')[0];
+	o.async=1; o.src=t; o.id='fathom-script';
+	m.parentNode.insertBefore(o,m)
+})(document, window, '//cdn.usefathom.com/tracker.js', 'fathom');
+fathom('set', 'siteId', 'ABCDE');
+fathom('trackPageview');
+</script>
+
+
+  </body>
+
+</html>

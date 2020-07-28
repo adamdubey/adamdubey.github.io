@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+
+    <meta name="author" content="Adam Dubey">
+    <meta name="description" content="A guide to developing and working with private NPM packages.">
+    <meta name="keywords" content="blog,developer,personal">
+
+    
+      <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+    
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://adamdubey.github.io/npm-pkgs.jpg"/>
+
+<meta name="twitter:title" content="Private NPM Package Development"/>
+<meta name="twitter:description" content="A guide to developing and working with private NPM packages."/>
+
+    <meta property="og:title" content="Private NPM Package Development" />
+<meta property="og:description" content="A guide to developing and working with private NPM packages." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adamdubey.github.io/posts/private-npm-package-development/" />
+<meta property="og:image" content="https://adamdubey.github.io/npm-pkgs.jpg" />
+<meta property="og:image" content="https://adamdubey.github.io/sharkteeth.gif" />
+<meta property="article:published_time" content="2019-12-27T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-12-27T00:00:00+00:00" />
+
+
+    
+      <base href="https://adamdubey.github.io/posts/private-npm-package-development/">
+    
+    <title>
+  Private NPM Package Development · adamdubey.github.io
+</title>
+
+    
+      <link rel="canonical" href="https://adamdubey.github.io/posts/private-npm-package-development/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://adamdubey.github.io/css/coder.min.3219ef62ae52679b7a9c19043171c3cd9f523628c2a65f3ef247ee18836bc90b.css" integrity="sha256-MhnvYq5SZ5t6nBkEMXHDzZ9SNijCpl8&#43;8kfuGINryQs=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://adamdubey.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://adamdubey.github.io/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.60.1" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light"
+        onload=" twemoji.parse(document.body); "
+  >
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://adamdubey.github.io/">
+      adamdubey.github.io
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://adamdubey.github.io/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://adamdubey.github.io/projects/">Projects</a>
+          </li>
+        
+      
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Private NPM Package Development</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2019-12-27T00:00:00Z'>
+                December 27, 2019
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              4-minute read
+            </span>
+          </div>
+          
+          
+        </div>
+      </header>
+
+      <div>
+        
+        <p>A primer on developing private NPM packages.</p>
+<h1 id="packages-galore">Packages galore</h1>
+<p><img src="npm-pkgs.jpg" alt="npm-pkgs"></p>
+<p><em>The problem we want to avoid!</em></p>
+<p>Outlined are the procedures and guidelines for private NPM package development. This guide is inspired by an old dev team I was on, and frankly this has served me time and time again when working on internal NPM packages at other companies.</p>
+<p>One of the fundamental principles a Web Development team should embrace is the software programming ideals behind the old Unix philosophy - You should strive to build short, clear, modular, reusable, composable, and extensible code whenever possible.</p>
+<p>Certainly, the best way to realize such ideals is by taking full advantage of NPM by using NPM for importing 3rd-party open-source packages. Additionally, it is also used to manage and host one’s own internal shared libraries as private NPM packages.</p>
+<h2 id="setup">Setup</h2>
+<p>To keep things simple, imagine you've just joined a new team as a Full Stack Engineer - congrats! 🎉 The project tech stack has several private NPM packages specific to your team's application, perfect for this guide!</p>
+<p>The typical first steps when working on a new project or onboarding with a new team would be to clone the project repository and run <code>npm install</code>.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git clone https://github.com/&lt;user-name&gt;/&lt;project&gt;.git
+$ <span style="color:#a2f">cd</span> &lt;project&gt;/
+$ npm install
+</code></pre></div><p>You’ll also need to set up the <code>NPM_TOKEN</code> environment variable, which holds the NPM access token used for reading packages from, and publishing packages to, your NPM organization. More on this later.</p>
+<h2 id="basic-workflow">Basic Workflow</h2>
+<p>Let's talk about workflows&hellip; Every organization is different, and there might be some extra steps that aren't present from this example workflow. However, the fundamentals of this workflow will get you by swimmingly!</p>
+<p>An example of a typical development workflow might look like the following:</p>
+<ol>
+<li>Create a branch</li>
+<li>Make changes</li>
+<li>Run Unit tests</li>
+<li>Iterate</li>
+<li>Submit a PR</li>
+<li>Get a code review from at least two teammates</li>
+<li>Iterate some more</li>
+<li>Merge into Master upon approval</li>
+</ol>
+<p>And so on and so forth&hellip; No need to overcomplicate it.</p>
+<p><img src="sharkteeth.gif" alt="sharkteeth"></p>
+<p><em>SHARK TEETH!</em></p>
+<h2 id="building-and-publishing">Building and Publishing</h2>
+<p>Assuming you’ve followed the usual development workflow, and your changes have been merged into the Master branch, next would be to create a new Task (or Ticket) in your project management software and corresponding Task branch (e.g., <code>T123</code>). Give the task the same name as well as the version being published (e.g. <code>“0.13.0”</code>). Checkout the branch, and follow the steps below to publish a new version of a private NPM package.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#080;font-style:italic"># If there are tests, ALL must pass!</span>
+$ npm <span style="color:#a2f">test</span>
+
+<span style="color:#080;font-style:italic"># This bumps the version and creates a git tag for you</span>
+$ npm version &lt;segment&gt;
+
+<span style="color:#080;font-style:italic"># This compiles into the lib/ directory using Babel</span>
+$ npm run build
+
+<span style="color:#080;font-style:italic"># This publishes to a NPM repo (using the NPM credentials provided by your organization)</span>
+$ npm publish
+
+<span style="color:#080;font-style:italic"># This pushes up the git tag that was created by `npm version`</span>
+$ git push --all --follow-tags
+</code></pre></div><p>Upon completion of these steps, you'll need to open a Pull Request just like you would for any other change. The diff should be extremely simple, just check the version in <code>package.json</code> as it should change.</p>
+<h2 id="determining-versions">Determining Versions</h2>
+<p>This may not align with your organization's rulebook, and that's okay. If you have the choice to establish Versioning guidelines, then this will hold up well for you!</p>
+<p>So which version segment to bump? Often it's best to use Semantic Versioning for shared libraries.</p>
+<p>What this means is given a version number <strong>MAJOR.MINOR.PATCH</strong>, increment the:</p>
+<ul>
+<li><strong>MAJOR</strong> version when you make incompatible API changes</li>
+<li><strong>MINOR</strong> version when you add functionality in a backwards-compatible manner</li>
+<li><strong>PATCH</strong> version when you make backwards-compatible bug fixes.</li>
+</ul>
+<p>In other words&hellip;</p>
+<p>Bump the <strong>MAJOR</strong> version segment whenever you make a backwards-incompatible change to the interface of any utility defined in the library to be published for example:</p>
+<ul>
+<li>Changing method or function signatures</li>
+<li>Changing input types</li>
+<li>Changing return value types</li>
+<li>Removing public methods or classes</li>
+<li>Changing the name or location of methods, classes, etc..</li>
+</ul>
+<p>Bump the <strong>MINOR</strong> version segment whenever you make a backwards-compatible change to the library that's more than just a bug fix. Examples would be:</p>
+<ul>
+<li>Adding new methods or classes</li>
+<li>Refactoring internal implementation details</li>
+</ul>
+<p>Bump the <strong>PATCH</strong> version segment whenever you fix a bug in a backwards-compatible manner and are not making any other changes to the library.</p>
+<ul>
+<li>npm version patch</li>
+</ul>
+<p>Updating NPM dependencies that the library uses constitutes at minimum a <strong>MINOR</strong> version bump. If you were changing a dependency that leads to further interface-level changes or breaking side-effects, then it may constitute a <strong>MAJOR</strong> version bump.</p>
+<h3 id="private-npm-credentials">Private NPM Credentials</h3>
+<p>In order to publish or install private packages to and from your NPM organization, you must provide valid credentials via the <code>NPM_TOKEN</code> environment variable. Be sure to export it from your <code>~/.bash_profile</code>.</p>
+<p>The one shown below is merely an example.</p>
+<p><code>export NPM_TOKEN=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX</code></p>
+<p>Most importantly&hellip; Do NOT commit the <code>NPM_TOKEN</code> value. It must be kept confidential, and if you believe it has become compromised, regenerate a new token immediately!</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+        <p>San Francisco, CA 🇺🇸</p>
+      
+      
+        ©
+        
+          2019 -
+        
+        2020
+         Adam Dubey 
+      
+      
+         · 
+        Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+      
+      
+    </section>
+  </footer>
+
+    </main>
+
+    
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-136386310-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+    <script>
+(function(f, a, t, h, o, m){
+	a[h]=a[h]||function(){
+		(a[h].q=a[h].q||[]).push(arguments)
+	};
+	o=f.createElement('script'),
+	m=f.getElementsByTagName('script')[0];
+	o.async=1; o.src=t; o.id='fathom-script';
+	m.parentNode.insertBefore(o,m)
+})(document, window, '//cdn.usefathom.com/tracker.js', 'fathom');
+fathom('set', 'siteId', 'ABCDE');
+fathom('trackPageview');
+</script>
+
+
+  </body>
+
+</html>
