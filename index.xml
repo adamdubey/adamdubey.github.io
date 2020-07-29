@@ -119,9 +119,9 @@ Stay tuned &amp;amp; as always,</description>
       
       <guid>https://adamdubey.github.io/projects/</guid>
       <description>Various projects and demo applications.
- Fibonacci Calculator 🧮 Taking a look at scalable Microservice Architecture from the lens of CI/CD, featuring Docker and Kubernetes.
- Javascript30: Project Gallery 🎨 A gallery of all completed projects created from the 30 Days of Javascript Challenge as presented by Wes Bos.
- Crypto Dashboard App 💰 Revisiting the FinTech world by rapidly prototyping a basic dashboard app to display real-time cryptocurrency prices.</description>
+ Cinema Wars! 🎥 Can&#39;t decide on which movie to watch? Let the data compare two different movies so you&#39;ll know which is the better of the two!
+ Deep Dive: Microservice Architecture 🔬 Exploring the finer nuances of working with a containerized Microservice application.
+ Intro to CI/CD: Welcome to Docker 🐳 The 411 on taking your project from zero to over 9000 with CI/CD.</description>
     </item>
     
   </channel>
