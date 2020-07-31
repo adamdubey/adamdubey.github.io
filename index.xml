@@ -6,10 +6,20 @@
     <description>Recent content on adamdubey.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 23 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 16 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://adamdubey.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Journey to the Crypt of the Arctic</title>
+      <link>https://adamdubey.github.io/posts/gh-code-archive/</link>
+      <pubDate>Thu, 16 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://adamdubey.github.io/posts/gh-code-archive/</guid>
+      <description>In a decommissioned coal mine around 77.8750° N, 20.9752° E&amp;hellip;
+Umm, what? Like many other engineers that awoke on the morning of 16 July 2020 to find a new shiny piece of flair on their own Github profiles, I too found myself wondering what was going on. Upon spending time reading through some early posts on both HN and Reddit, there still wasn&#39;t a very clear answer as to what this new “Arctic Badge” was all about.</description>
+    </item>
     
     <item>
       <title>Summer Hackathon 2020: Migrating to Hugo</title>
@@ -121,7 +131,8 @@ Stay tuned &amp;amp; as always,</description>
       <description>Various projects and demo applications.
  Cinema Wars! 🎥 Can&#39;t decide on which movie to watch? Let the data compare two different movies so you&#39;ll know which is the better of the two!
  Deep Dive: Microservice Architecture 🔬 Exploring the finer nuances of working with a containerized Microservice application.
- Intro to CI/CD: Welcome to Docker 🐳 The 411 on taking your project from zero to over 9000 with CI/CD.</description>
+ CI/CD &amp;amp; Docker 🐳 The 411 on integrating your projects with a basic CI/CD pipeline.
+ QA Automation 101: Selenium &amp;amp; Nightwatch.</description>
     </item>
     
   </channel>
