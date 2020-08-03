@@ -6,10 +6,21 @@
     <description>Recent content on adamdubey.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 16 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 03 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://adamdubey.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Homelab Diaries: The Great Network Rebuild</title>
+      <link>https://adamdubey.github.io/posts/network-rebuild/</link>
+      <pubDate>Mon, 03 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://adamdubey.github.io/posts/network-rebuild/</guid>
+      <description>Ah, don&#39;t ya just love the smell of burnt network equipment in the morning?!
+Burning down the house Good Grief! - It smells like the server room is on fire!&amp;hellip;
+&amp;hellip;at approximately 0725 on just another Tuesday in late June, SW-02 suffered an unrecoverable failure, ultimately leading to it&#39;s end of life - at least until I yanked the power cable and sprayed an inverted can of compressed air into it as coolant&amp;hellip;</description>
+    </item>
     
     <item>
       <title>Journey to the Crypt of the Arctic</title>
